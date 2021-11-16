@@ -57,18 +57,21 @@ class EpochsDataset(Dataset):
 
 
 def _do_train(model, loader, optimizer, criterion, device):
+    iter_loss = 0.0
+    train_acc = 0.0
     # training loop
     model.train()
     pbar = tqdm(loader)
     train_loss = np.zeros(len(loader))
     for idx_batch, (batch_x, batch_y) in enumerate(pbar):
+        
         optimizer.zero_grad()
         batch_x = batch_x.to(device=device, dtype=torch.float32)
         batch_y = batch_y.to(device=device, dtype=torch.int64)
 
         output = model(batch_x)
         loss = criterion(output, batch_y)
-
+        iter_loss += loss.item()
         loss.backward()
         optimizer.step()
 
@@ -76,6 +79,7 @@ def _do_train(model, loader, optimizer, criterion, device):
         pbar.set_description(
             desc="avg train loss: {:.4f}".format(
                 np.mean(train_loss[:idx_batch + 1])))
+    return train_loss
 
 
 def _validate(model, loader, criterion, device):
@@ -109,7 +113,7 @@ def _validate(model, loader, criterion, device):
     return np.mean(val_loss)
 
 
-def train(model, loader_train, loader_valid, optimizer, n_epochs, patience,
+def train(model, loader_train, loader_valid, optimizer,criterion, n_epochs, patience,
           device):
     """Training function
     Parameters
@@ -125,6 +129,7 @@ def train(model, loader_train, loader_valid, optimizer, n_epochs, patience,
         monitor the training process and to perform early stopping
     optimizer : instance of optimizer
         The optimizer to use for training.
+    criterion : instance of loss function
     n_epochs : int
         The maximum of epochs to run.
     patience : int
@@ -141,19 +146,25 @@ def train(model, loader_train, loader_valid, optimizer, n_epochs, patience,
     # put model on cuda if not already
     device = torch.device(device)
     # model.to(device)
-
+    
     # define criterion
-    criterion = F.nll_loss
+    #criterion = F.nll_loss
+    #criterion = torch.nn.CrossEntropyLoss()
 
     best_val_loss = + np.infty
     best_model = copy.deepcopy(model)
     waiting = 0
+    train_arr = []
+    valid_arr = []
 
     for epoch in range(n_epochs):
         print("\nStarting epoch {} / {}".format(epoch + 1, n_epochs))
-        _do_train(model, loader_train, optimizer, criterion, device)
+        train_loss = _do_train(model, loader_train, optimizer, criterion, device)
         val_loss = _validate(model, loader_valid, criterion, device)
-
+        train_arr.append(train_loss[0])
+        valid_arr.append(val_loss)
+        
+        
         # model saving
         if np.mean(val_loss) < best_val_loss:
             print("\nbest val loss {:.4f} -> {:.4f}".format(
@@ -171,4 +182,4 @@ def train(model, loader_train, loader_valid, optimizer, n_epochs, patience,
             print("Best val loss : {:.4f}".format(best_val_loss))
             break
 
-    return best_model
+    return best_model,train_arr,valid_arr
