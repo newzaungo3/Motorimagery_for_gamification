@@ -63,6 +63,7 @@ def _do_train(model, loader, optimizer, criterion, device):
     model.train()
     pbar = tqdm(loader)
     train_loss = np.zeros(len(loader))
+    accuracy = 0.
     for idx_batch, (batch_x, batch_y) in enumerate(pbar):
         
         optimizer.zero_grad()
@@ -74,12 +75,20 @@ def _do_train(model, loader, optimizer, criterion, device):
         iter_loss += loss.item()
         loss.backward()
         optimizer.step()
-
+        
+        #accuracy
+        _, top_class = output.topk(1, dim=1)
+        top_class = top_class.flatten()
+        accuracy += \
+                torch.sum((batch_y == top_class).to(torch.float32))
+        
         train_loss[idx_batch] = loss.item()
         pbar.set_description(
-            desc="avg train loss: {:.4f}".format(
+            desc="avg train loss: {:.2f}".format(
                 np.mean(train_loss[:idx_batch + 1])))
-    return train_loss
+    accuracy = accuracy / len(loader.dataset) *100
+    print("---  Accuracy Training set : %.2f %%" % accuracy.item(), "\n")
+    return train_loss,accuracy
 
 
 def _validate(model, loader, criterion, device):
@@ -105,16 +114,16 @@ def _validate(model, loader, criterion, device):
                 torch.sum((batch_y == top_class).to(torch.float32))
 
             pbar.set_description(
-                desc="avg val loss: {:.4f}".format(
+                desc="avg val loss: {:.2f}".format(
                     np.mean(val_loss[:idx_batch + 1])))
 
-    accuracy = accuracy / len(loader.dataset)
-    print("---  Accuracy : %s" % accuracy.item(), "\n")
-    return np.mean(val_loss)
+    accuracy = accuracy / len(loader.dataset) * 100
+    print("---  Accuracy Validation set: %.2f %%" % accuracy.item(), "\n")
+    return np.mean(val_loss),accuracy
 
 
 def train(model, loader_train, loader_valid, optimizer,criterion, n_epochs, patience,
-          device):
+          device,wname):
     """Training function
     Parameters
     ----------
@@ -137,6 +146,7 @@ def train(model, loader_train, loader_valid, optimizer,criterion, n_epochs, pati
         validation error to go down.
     device : str | instance of torch.device
         The device to train the model on.
+    wname : str | weights to save model.
     Returns
     -------
     best_model : instance of nn.Module
@@ -150,27 +160,30 @@ def train(model, loader_train, loader_valid, optimizer,criterion, n_epochs, pati
     # define criterion
     #criterion = F.nll_loss
     #criterion = torch.nn.CrossEntropyLoss()
-
+    weights_name = wname
     best_val_loss = + np.infty
     best_model = copy.deepcopy(model)
+    best_accracy = 0
     waiting = 0
     train_arr = []
     valid_arr = []
 
     for epoch in range(n_epochs):
         print("\nStarting epoch {} / {}".format(epoch + 1, n_epochs))
-        train_loss = _do_train(model, loader_train, optimizer, criterion, device)
-        val_loss = _validate(model, loader_valid, criterion, device)
+        train_loss,train_acc = _do_train(model, loader_train, optimizer, criterion, device)
+        val_loss,val_acc = _validate(model, loader_valid, criterion, device)
         train_arr.append(train_loss[0])
         valid_arr.append(val_loss)
         
         
         # model saving
-        if np.mean(val_loss) < best_val_loss:
+        if (np.mean(val_loss) < best_val_loss) and (val_acc > best_accracy):
             print("\nbest val loss {:.4f} -> {:.4f}".format(
                 best_val_loss, np.mean(val_loss)))
             best_val_loss = np.mean(val_loss)
             best_model = copy.deepcopy(model)
+            best_accracy = val_acc
+            torch.save(best_model.state_dict(), f"./save_weight/{weights_name}-{epoch}-bestacc{best_accracy:.2f}.pth")
             waiting = 0
         else:
             print("Waiting += 1")
