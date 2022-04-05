@@ -127,5 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-/dataset
-/save_weight
+/EEG_Model/save_weight
+/EEG_Model/dataset

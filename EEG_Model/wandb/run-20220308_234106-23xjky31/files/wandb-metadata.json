@@ -1,0 +1,34 @@
+{
+    "os": "Windows-10-10.0.22000-SP0",
+    "python": "3.8.0",
+    "heartbeatAt": "2022-03-08T16:41:12.358968",
+    "startedAt": "2022-03-08T16:41:06.931979",
+    "docker": null,
+    "gpu": "NVIDIA GeForce GTX 1060",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--ip=127.0.0.1",
+        "--stdin=9008",
+        "--control=9006",
+        "--hb=9005",
+        "--Session.signature_scheme=\"hmac-sha256\"",
+        "--Session.key=b\"ba5cf413-bb09-450a-9fd6-50332b1daf86\"",
+        "--shell=9007",
+        "--transport=\"tcp\"",
+        "--iopub=9009",
+        "--f=C:\\Users\\asus\\AppData\\Local\\Temp\\tmp-7304TFc9ZEayDo3t.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/newzaungo3/Motorimagery_for_gamification.git",
+        "commit": "31d2be493dfd677f39ae36e25aed287360ec2c0a"
+    },
+    "email": "pongkorn_set@hotmail.com",
+    "root": "C:/Users/asus/Desktop/Motorimagery_for_gamification",
+    "host": "Newturno",
+    "username": "asus",
+    "executable": "C:\\Users\\asus\\anaconda3\\envs\\tf_gpu\\python.exe"
+}
