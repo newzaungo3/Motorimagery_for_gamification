@@ -1,5 +1,6 @@
 import random
 from unicodedata import category
+from beeply.notes import *
 import pylsl
 import numpy as np
 import pandas as pd
@@ -22,11 +23,12 @@ from utils import get_filenames_in_path
 #==============================================
 # Image setup
 #==============================================
-folder = 'experiment/'
+folder = 'Experiment_Gui/'
 image = 'images/'
 categories = ['left','right']
 stimuli = []
 
+#ubuntu, delete folder
 for cat in categories:
     l = get_filenames_in_path(f"{folder}{image}{cat}")
     stimuli.append(f'{folder}{image}{cat}{"/"}{l[0]}')
@@ -40,6 +42,7 @@ print(stimuli)
 screen_size = [1920, 1000]
 #screen_size = [800,600]
 #category
+a = beeps(800)
 
 #left and right image
 total_image = 2
@@ -51,11 +54,11 @@ num_session = 3 #3
 baseline_eyeopen = 60 #60second
 baseline_eyeclose = 60 #60second
 alert_time = 800 #8second 
-instruction_time = 10 
+instruction_time = 2 
 #stimuli time (left arrow and right arrow)
 stim_time = 5 #5second
 stim_blink_time = 0 #0second
-fixation_time = 8 #10 "+" inter trial interval
+fixation_time = 3 #10 "+" inter trial interval
 
 #เวลาทั้งหมด = (4 block * 12 trials * 3 session * 5 second) + (10 second(instruction))+(120 second(baseline))+(50 second(fixation)*3session)
 experiment_time = (num_block*num_trial*num_session*stim_time)+(instruction_time)+(baseline_eyeclose+baseline_eyeopen)+(fixation_time*5*3)
@@ -118,7 +121,7 @@ def drawBaselinerun(openTime,closeTime):
     core.wait(openTime)
     #alert
     mywin.flip()
-    winsound.Beep(440, alert_time)
+    a.hear('A_')
     drawFixation(fixation_time)
 
     #close
@@ -129,7 +132,7 @@ def drawBaselinerun(openTime,closeTime):
     core.wait(closeTime)
     #alert
     mywin.flip()
-    winsound.Beep(440, alert_time)
+    a.hear('A_')
     drawFixation(fixation_time)
     
 def eegMarking(markerString):   # use trial variable from main
@@ -168,7 +171,7 @@ while True:
                 #12 trials
                 for trials in range(num_trial):
                     drawTextOnScreen(f"Session:{session+1}_Block:{block+1}({block_dict[block+1]})_Trials:{trials+1}")
-                    core.wait(5)
+                    core.wait(1)
                     drawTextOnScreen("")
                     core.wait(0.5)
                     if block+1 == 1 or block+1 == 2 :
@@ -177,7 +180,7 @@ while True:
                         stim = stimuli[1]
                     print(stim)
                     drawTrial(f"{stim}",f"{block_dict[block+1]}_{trials+1}_{session+1}",stim_time)
-                    winsound.Beep(440, alert_time)
+                    a.hear('A_')
                     drawFixation(fixation_time)
         drawTextOnScreen('End of experiment, Thank you')
         

@@ -1,0 +1,10 @@
+figure ใน methodology ใหญ่ๆ หน้าเดียบจบ
+
+เปรียบเทียบ modelแต่ละอันที่มาใช้
+ใช้วิธีนี้เพราะมีidea แบบนี้
+
+มี5  model 5 รูปarchitecture เป็นอย่างไร และ แบบประยุกต์ของคุณเป็นอย่างไร
+3.1 figure ใหญ่ system 5model 3transfer learning
+3.2-3.7 
+
+Investigating the Effectiveness of Transfer Learning in a Motor Imagery Game
