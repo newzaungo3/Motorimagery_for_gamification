@@ -5,10 +5,12 @@ name = "pypi"
 
 [packages]
 pylsl = "*"
+simpleaudio = "*"
 numpy = "*"
 pandas = "*"
 ipython = "*"
-pocketsphinx = "*"
+
+pocketsphinx = "*" 
 psychopy = "*"
 beeply = "*"
 sox = "*"
