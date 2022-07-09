@@ -3,7 +3,7 @@ services:
   # Service/container name
   cuda-python:
     # Optional image name
-    image: eeg-emotion
+    image: eeg-motor
     # Docker file
     build: 
       context: .
@@ -12,6 +12,8 @@ services:
     volumes:
       - ./EEG_Model:/root/EEG_Model
       - ./.vscode-server:/root/.vscode-server
+    environment:
+      - PIPENV_VENV_IN_PROJECT=1
     # Mapping GPU
     deploy:
       resources:
@@ -19,7 +21,7 @@ services:
           # number of cores this container can use (can be 0.5 means half core)
           cpus: '8'
           # maximun RAM this container can use
-          memory: '12G'
+          memory: '16G'
         reservations:
           devices:
             - driver: nvidia
