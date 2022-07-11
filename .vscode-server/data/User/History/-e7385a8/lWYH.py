@@ -111,9 +111,8 @@ def train(model, loader_train, loader_valid, optimizer,criterion,device,wand):
         train_loss.append(iter_loss/iterations)
         
         train_accuracy.append((100 * correct.float() / len(loader_train.dataset)))
-        train_metrics = {"train/train_loss": iter_loss/iterations, 
+        val_metrics = {"train/train_loss": iter_loss/iterations, 
                        "train/train_accuracy": (100 * correct.float() / len(loader_train.dataset))}
-        wand.log({**metrics, **train_metrics})
 
         loss = 0.0
         correct = 0

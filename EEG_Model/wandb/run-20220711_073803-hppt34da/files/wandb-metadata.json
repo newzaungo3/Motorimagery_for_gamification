@@ -1,0 +1,17 @@
+{
+    "os": "Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-07-11T07:38:11.474265",
+    "startedAt": "2022-07-11T07:38:03.749115",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "host": "1d44d0bfe52c",
+    "username": "root",
+    "executable": "/root/EEG_Model/.venv/bin/python"
+}
