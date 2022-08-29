@@ -10,6 +10,14 @@ pandas = "*"
 mne = "*"
 pyqtgraph = "*"
 pyqt5 = "*"
+keyboard = "*"
+pylsl = "*"
+simpleaudio = "*"
+ipython = "*"
+pocketsphinx = "*"
+psychopy = "*"
+beeply = "*"
+mypy = "*"
 
 [dev-packages]
 
