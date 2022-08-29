@@ -16,4 +16,10 @@ Use `pipenv install`
 
 ## *How to run this code*
 `pipenv run python record.py --serial-port COM3 --board-id 0`
+`pipenv run python experiment.py --serial-port COM3 --board-id 0`
 
+
+## Experiment setup
+set up in config.py
+
+Name: participant name
