@@ -17,6 +17,8 @@ wandb = "*"
 tqdm = "*"
 brainflow = "*"
 pyqtgraph = "*"
+requests = "*"
+keyboard = "*"
 
 [dev-packages]
 ipykernel = "*"
