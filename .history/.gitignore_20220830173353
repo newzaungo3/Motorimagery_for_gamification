@@ -131,4 +131,3 @@ dmypy.json
 /EEG_Model/dataset
 /EEG_Model/wandb
 /EEG_recording/brainflow_data.csv
-/EEG_recording/record/S002.rar
