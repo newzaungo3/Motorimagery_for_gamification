@@ -19,6 +19,10 @@ brainflow = "*"
 pyqtgraph = "*"
 requests = "*"
 keyboard = "*"
+pyqt5 = "*"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
 
 [dev-packages]
 ipykernel = "*"

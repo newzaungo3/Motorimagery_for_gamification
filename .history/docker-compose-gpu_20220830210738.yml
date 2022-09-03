@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  # Service/container name
+  cuda-python:
+    # Optional image name
+    image: eeg-motor
+    # Port
+    ports:
+      - "8001:8001"
+    # Docker file
+    build: 
+      context: .
+      dockerfile: _gpu.Dockerfile
+    # Map volume once container is started
+    volumes:
+      - ./EEG_Model:/root/EEG_Model
+      - ./.vscode-server:/root/.vscode-server
+    environment:
+      - PIPENV_VENV_IN_PROJECT=1
+    # Mapping GPU
+    deploy:
+      resources:
+        limits:
+          # number of cores this container can use (can be 0.5 means half core)
+          cpus: '8'
+          # maximun RAM this container can use
+          memory: '16G'
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

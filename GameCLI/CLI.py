@@ -1,6 +1,6 @@
 import requests
 import keyboard
-print('port 5020')
+print('port 8001')
 while True:
     condition = input("You want (left) or (right): ")
     print(condition)
@@ -8,7 +8,7 @@ while True:
         print("End Program")
         break
     else:
-        requests.get(f"http://localhost:5020/JoyController?msg={condition}")
+        requests.get(f"http://host.docker.internal:8001/JoyController?msg={condition}")
     
     
     

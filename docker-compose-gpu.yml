@@ -4,6 +4,9 @@ services:
   cuda-python:
     # Optional image name
     image: eeg-motor
+    # Port
+    ports:
+      - "8001:8001"
     # Docker file
     build: 
       context: .

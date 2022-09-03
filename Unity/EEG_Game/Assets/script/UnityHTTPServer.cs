@@ -69,7 +69,27 @@ public class UnityHTTPServer : MonoBehaviour
             return SaveFolder;
         }
     }
+    public static string GetHttpUrl()
+    {
+        return $"http://{GetLocalIPAddress()}:" + Instance.myServer.Port + "/";
+    }
 
+    /// <summary>
+    /// Get the Host IPv4 adress
+    /// </summary>
+    /// <returns>IPv4 address</returns>
+    public static string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        throw new Exception("No network adapters with an IPv4 address in the system!");
+    }
     public void StopServer()
     {
         Application.Quit();

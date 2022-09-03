@@ -18,6 +18,8 @@ pocketsphinx = "*"
 psychopy = "*"
 beeply = "*"
 mypy = "*"
+fastapi = "*"
+uvicorn = "*"
 
 [dev-packages]
 
