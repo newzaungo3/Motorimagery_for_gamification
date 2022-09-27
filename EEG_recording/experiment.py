@@ -25,6 +25,7 @@ import sys
 from config import *
 from utils import get_filenames_in_path
 from data_utils import save_raw,getdata,getepoch,save_raw_to_dataframe
+from psychopy.visual import vlcmoviestim
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 stimuli = []
@@ -34,9 +35,12 @@ mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , 
 #ubuntu, delete folder
 for cat in CATEGORIES:
     l = get_filenames_in_path(f"{IMAGE_FOLDER}{cat}")
+    v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
     stimuli.append(f'{IMAGE_FOLDER}{cat}{"/"}{l[0]}')
+    stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
 
 print(stimuli)
+
 #เวลาทั้งหมด = (4 block * 12 trials * 3 session * 5 second) + (10 second(instruction))+(120 second(baseline))+(50 second(fixation)*3session)
 experiment_time = (NUM_BLOCK*NUM_TRIAL*NUM_SESSION*STIM_TIME)+(INSTRUCTION_TIME)+(BASELINE_EYEOPEN+BASELINE_EYECLOSE)+(FIXATION_TIME*5*3)
 print(f"Total experiment time = {'{:.2f}'.format(math.ceil(experiment_time/60))} Minute" )
@@ -126,6 +130,18 @@ def eegMarking(board,marker):   # use trial variable from main
     elif marker == 4.0:
         print("Marker string Fixation")
     board.insert_marker(marker)
+
+def playVideo(videoPath, mark, stimTime,board):
+    video = vlcmoviestim.VlcMovieStim(mywin,videoPath)
+    video.loadMovie(videoPath)
+    video.setVolume(0)
+    video.play()
+    eegMarking(board,mark)
+    while True:
+        video.draw(mywin)
+        mywin.flip()
+        if video.frameTime >= STIM_TIME:
+            break
     
 # Setup EEG board
 def main():
@@ -173,6 +189,12 @@ def main():
             for session in range(NUM_SESSION):
                 # 4 block
                 for block in range(NUM_BLOCK):
+                    if (block+1) % 2 != 0:
+                        #Executed
+                        IS_VIDEO = False
+                    else:
+                        #Imagine
+                        IS_VIDEO = True
                     #1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right'
                     #12 trials
                     STIM_CHECK = 0
@@ -181,22 +203,41 @@ def main():
                         core.wait(1)
                         drawTextOnScreen("")
                         core.wait(0.5)
-                        #สลับซ้ายขวา = ใช้ mod       
-                        if STIM_CHECK % 2 == 0:
-                            stim = stimuli[0]
-                            Marker = BLOCK_MARKER[1]
-                        elif STIM_CHECK % 2 != 0:
-                            stim = stimuli[1]
-                            Marker = BLOCK_MARKER[2]
-                            
-                        print(stim)
-                        print(Marker)
-                        drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
-                        a.hear('A_')
-                        drawFixation(FIXATION_TIME,board_shim)
-                        STIM_CHECK += 1
-                        print(STIM_CHECK)
-                    
+                        #สลับซ้ายขวา = ใช้ mod
+                        #check is_video == true       
+                        if IS_VIDEO == True:
+                            #left
+                            if STIM_CHECK % 2 == 0:
+                                stim = stimuli[1]
+                                Marker = BLOCK_MARKER[1]
+                            #right
+                            elif STIM_CHECK % 2 != 0:
+                                stim = stimuli[3]
+                                Marker = BLOCK_MARKER[2]
+                            #drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
+                            playVideo(f"{stim}",Marker,STIM_TIME,board_shim)
+                            a.hear('A_')
+                            drawFixation(FIXATION_TIME,board_shim)
+                            STIM_CHECK += 1
+                            print(STIM_CHECK)
+                        else:
+                            #left     
+                            if STIM_CHECK % 2 == 0:
+                                stim = stimuli[0]
+                                Marker = BLOCK_MARKER[1]
+                            #right
+                            elif STIM_CHECK % 2 != 0:
+                                stim = stimuli[2]
+                                Marker = BLOCK_MARKER[2]
+
+                            #print(stim)
+                            #print(Marker)
+                            drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
+                            a.hear('A_')
+                            drawFixation(FIXATION_TIME,board_shim)
+                            STIM_CHECK += 1
+                            print(STIM_CHECK)
+                                
                     #save 1 block save เพราะมีซ้ายขวาแล้ว    
                     #save mne executed type
                     if (block+1) % 2 != 0:
@@ -218,7 +259,8 @@ def main():
                         raw = getdata(data_copy,BOARD_ID,n_samples = 250)
                         save_raw(raw,block_name)
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
-                            
+                drawTextOnScreen('Session Break 10 seconds')        
+                core.wait(SESSION_BREAK)                
             drawTextOnScreen('End of experiment, Thank you')
             
             stop  = time.time()
@@ -230,7 +272,6 @@ def main():
     
     if board_shim.is_prepared():
             logging.info('Releasing session')
-            
             # stop board to stream
             board_shim.stop_stream()
             board_shim.release_session()
