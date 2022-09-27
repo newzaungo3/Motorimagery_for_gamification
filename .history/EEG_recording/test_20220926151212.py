@@ -1,0 +1,11 @@
+from psychopy import visual, core, event,monitors
+from config import *
+file = 'left.mp4'
+mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm') 
+video = visual.MovieStim(mywin,file,pos = (0, 100) ,loop = False)
+#video.loadMovie(file)
+video.play()
+mywin.flip()
+while True:
+    video.draw()
+    

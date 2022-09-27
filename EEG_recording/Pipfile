@@ -20,6 +20,8 @@ beeply = "*"
 mypy = "*"
 fastapi = "*"
 uvicorn = "*"
+ffpyplayer = "*"
+python-vlc = "*"
 
 [dev-packages]
 
