@@ -189,12 +189,13 @@ def main():
             for session in range(NUM_SESSION):
                 # 4 block
                 for block in range(NUM_BLOCK):
-                    if (block+1) % 2 != 0:
-                        #Executed
-                        IS_VIDEO = False
-                    else:
-                        #Imagine
-                        IS_VIDEO = True
+                    if IS_VIDEO:
+                        if (block+1) % 2 != 0:
+                            #Executed
+                            PLAY_VIDEO = False
+                        else:
+                            #Imagine
+                            PLAY_VIDEO = True
                     #1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right'
                     #12 trials
                     STIM_CHECK = 0
@@ -205,7 +206,7 @@ def main():
                         core.wait(0.5)
                         #สลับซ้ายขวา = ใช้ mod
                         #check is_video == true       
-                        if IS_VIDEO == True:
+                        if PLAY_VIDEO == True:
                             #left
                             if STIM_CHECK % 2 == 0:
                                 stim = stimuli[1]

@@ -12,7 +12,7 @@ VIDEO_FOLDER:str = 'video/'
 #==============================================
 SCREEN_SIZE:array = [1920, 1000]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 30 #30
+NUM_TRIAL:int = 4 #30
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 3 #3
 STIM_CHECK = 0
@@ -49,7 +49,8 @@ PRESET = 0
 #BLOCK_DICT:dict[int,str] = {1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right' }
 BLOCK_DICT:dict[int,str] = {1:'execute',2:'imagine',3:'executed',4:'imagine' }
 BLOCK_MARKER:dict = {1:1.0 , 2:2.0}
-IS_VIDEO = False
+IS_VIDEO = True
+PLAY_VIDEO = False
 
 #Record config
 NAME:str = 'PONGKORN'
