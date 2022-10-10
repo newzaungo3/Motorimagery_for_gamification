@@ -54,9 +54,9 @@ if __name__ == '__main__':
 print('Streams closed')
 
 	    
-'''count = 0
+count = 0
 while(True):
 	time.sleep(waittime)
 	x= threading.Thread(target = runRT, args=(count,))
 	x.start()
-	count+=1'''
+	count+=1

@@ -12,13 +12,13 @@ VIDEO_FOLDER:str = 'video/'
 #==============================================
 SCREEN_SIZE:array = [1920, 1000]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 4 #30
+NUM_TRIAL:int = 30 #30
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 3 #3
 STIM_CHECK = 0
 # baseline run
-BASELINE_EYEOPEN:int = 3 #60second
-BASELINE_EYECLOSE:int = 3 #60second
+BASELINE_EYEOPEN:int = 60 #60second
+BASELINE_EYECLOSE:int = 60 #60second
 ALERT_TIME:int = 800 #8second 
 INSTRUCTION_TIME:int = 2 
 #stimuli time (left arrow and right arrow)
@@ -54,7 +54,7 @@ PLAY_VIDEO = False
 
 #Record config
 NAME:str = 'PONGKORN'
-PARTICIPANT_ID:str = 'S007'
+PARTICIPANT_ID:str = 'S008'
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'
