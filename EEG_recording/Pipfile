@@ -23,6 +23,7 @@ uvicorn = "*"
 ffpyplayer = "*"
 python-vlc = "*"
 mne-realtime = {file = "https://api.github.com/repos/mne-tools/mne-realtime/zipball/main"}
+seaborn = "*"
 
 [dev-packages]
 
