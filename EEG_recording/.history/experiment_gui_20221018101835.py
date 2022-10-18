@@ -6,7 +6,6 @@ import logging
 from turtle import color
 logging.getLogger('PIL').setLevel(logging.WARNING)
 from config import *
-from psychopy.visual import vlcmoviestim
 from beeply.notes import *
 #Stimuli
 stimuli = []
@@ -68,19 +67,17 @@ def eegMarking(board,marker):   # use trial variable from main
     
 def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     baseline_open_name = f'{PARTICIPANT_ID}R{1:02d}'
-    #throw data
-    data = board.get_board_data() 
     #Baseline run
     #open
-    drawTextOnScreen("Baseline run 1: Open eyes (estimated time: 60 second)",mywin)
+    drawTextOnScreen("Baseline run 1: Open eyes (estimated time: 60 second)")
     core.wait(3)
-    drawTextOnScreen('',mywin)
+    drawTextOnScreen('')
     eegMarking(board,3.0)
     core.wait(openTime)
     #alert
     mywin.flip()
     a.hear('A_')
-    drawFixation(FIXATION_TIME,board,mywin)
+    drawFixation(FIXATION_TIME,board)
     
     #save baselinefile to mne and .fif
     #remove buffer
@@ -92,15 +89,15 @@ def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     
     #close
     baseline_close_name = f'{PARTICIPANT_ID}R{2:02d}'
-    drawTextOnScreen("Baseline run 2: Close eyes (estimated time: 60 second)",mywin)
+    drawTextOnScreen("Baseline run 2: Close eyes (estimated time: 60 second)")
     core.wait(3)
-    drawTextOnScreen('',mywin)
+    drawTextOnScreen('')
     eegMarking(board,3.0)
     core.wait(closeTime)
     #alert
     mywin.flip()
     a.hear('A_')
-    drawFixation(FIXATION_TIME,board,mywin)
+    drawFixation(FIXATION_TIME,board)
     
     #save baselinefile to mne and .fif
     #remove buffer
@@ -109,16 +106,3 @@ def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     data_copy = data.copy()
     raw = getdata(data_copy,board_id,n_samples = 250)
     save_raw(raw,baseline_close_name)
-    
-
-def playVideo(videoPath, mark, stimTime,board,mywin):
-    video = vlcmoviestim.VlcMovieStim(mywin,videoPath)
-    video.loadMovie(videoPath)
-    video.setVolume(0)
-    video.play()
-    eegMarking(board,mark)
-    while True:
-        video.draw(mywin)
-        mywin.flip()
-        if video.frameTime >= STIM_TIME:
-            break

@@ -14,23 +14,22 @@ SCREEN_SIZE:array = [1920, 1000]
 TOTAL_IMAGE:int = 2
 NUM_TRIAL:int = 30 #30
 NUM_BLOCK:int = 4 #4
-NUM_SESSION:int = 1 #3
+NUM_SESSION:int = 3 #3
 STIM_CHECK = 0
 # baseline run
-IS_BASELINE:bool = True
-BASELINE_EYEOPEN:int = 3 #60second
-BASELINE_EYECLOSE:int = 3 #60second
+BASELINE_EYEOPEN:int = 60 #60second
+BASELINE_EYECLOSE:int = 60 #60second
 ALERT_TIME:int = 800 #8second 
 INSTRUCTION_TIME:int = 2 
 #stimuli time (left arrow and right arrow)
 STIM_TIME:int = 4 #4second
 STIM_BLINK_TIME:int = 0 #0second
-FIXATION_TIME:int = 3 #10 "+" inter trial interval
+FIXATION_TIME:int = 5 #10 "+" inter trial interval
 EXE_COUNT:int = 0
 IMAGINE_COUNT:int = 0
 EXECUTE_NO:array=[3,5,7,9,11,13]
 IMAGINE_NO:array=[4,6,8,10,12,14]
-BLOCK_BREAK = 3 #240 second, 4  min
+BLOCK_BREAK = 30 #30 second
 SESSION_BREAK = 60 #60 second
 
 #EEG config

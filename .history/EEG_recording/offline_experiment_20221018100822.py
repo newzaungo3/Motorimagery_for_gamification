@@ -11,7 +11,6 @@ from brainflow.data_filter import DataFilter, FilterTypes,DetrendOperations,Wind
 from pyqtgraph.Qt import QtGui, QtCore,QtWidgets
 from unicodedata import category
 from beeply.notes import *
-from experiment_gui import *
 import pylsl
 import time
 import itertools
@@ -30,8 +29,7 @@ from psychopy.visual import vlcmoviestim
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 stimuli = []
-a = beeps(600)
-b = beeps(800)
+a = beeps(800)
 mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm') 
 
 #ubuntu, delete folder
@@ -93,7 +91,7 @@ def drawBaselinerun(openTime,closeTime,board,board_id):
     core.wait(openTime)
     #alert
     mywin.flip()
-    b.hear('A_')
+    a.hear('A_')
     drawFixation(FIXATION_TIME,board)
     
     #save baselinefile to mne and .fif
@@ -113,7 +111,7 @@ def drawBaselinerun(openTime,closeTime,board,board_id):
     core.wait(closeTime)
     #alert
     mywin.flip()
-    b.hear('A_')
+    a.hear('A_')
     drawFixation(FIXATION_TIME,board)
     
     #save baselinefile to mne and .fif
@@ -186,9 +184,8 @@ def main():
         keys = event.getKeys()
         if 'space' in keys:      # If space has been pushed
             start = time.time()
-            drawTextOnScreen('')
-            if IS_BASELINE: 
-                drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID)
+            drawTextOnScreen('') 
+            drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID)
             #experiment      
             #3 session
             for session in range(NUM_SESSION):
@@ -205,10 +202,10 @@ def main():
                     #12 trials
                     STIM_CHECK = 0
                     for trials in range(NUM_TRIAL):
-                        #drawTextOnScreen(f"Session:{session+1}_Block:{block+1}({BLOCK_DICT[block+1]})_Trials:{trials+1}")
-                        #draw first fixation
-                        a.hear('A_')
-                        drawFixation(FIXATION_TIME,board_shim)
+                        drawTextOnScreen(f"Session:{session+1}_Block:{block+1}({BLOCK_DICT[block+1]})_Trials:{trials+1}")
+                        core.wait(1)
+                        drawTextOnScreen("")
+                        core.wait(0.5)
                         #สลับซ้ายขวา = ใช้ mod
                         #check is_video == true       
                         if PLAY_VIDEO == True:
@@ -222,7 +219,7 @@ def main():
                                 Marker = BLOCK_MARKER[2]
                             #drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
                             playVideo(f"{stim}",Marker,STIM_TIME,board_shim)
-                            b.hear('A_')
+                            a.hear('A_')
                             drawFixation(FIXATION_TIME,board_shim)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
@@ -238,7 +235,7 @@ def main():
                             #print(stim)
                             #print(Marker)
                             drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
-                            b.hear('A_')
+                            a.hear('A_')
                             drawFixation(FIXATION_TIME,board_shim)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
@@ -266,10 +263,8 @@ def main():
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
                         
                     #block break
-                    drawTextOnScreen('Block Break 4 Minutes')
+                    drawTextOnScreen('Block Break 30 seconds')
                     core.wait(BLOCK_BREAK)
-                    #throw data
-                    data = board_shim.get_board_data()
                 drawTextOnScreen('Session Break 60 seconds')        
                 core.wait(SESSION_BREAK)                
             drawTextOnScreen('End of experiment, Thank you')

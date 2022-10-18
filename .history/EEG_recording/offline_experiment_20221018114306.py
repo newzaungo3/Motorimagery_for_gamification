@@ -30,7 +30,7 @@ from psychopy.visual import vlcmoviestim
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 stimuli = []
-a = beeps(600)
+a = beeps(500)
 b = beeps(800)
 mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm') 
 

@@ -182,13 +182,13 @@ def main():
     logging.info("Begin experiment")
     while True:
         # how to start an experiment
-        drawTextOnScreen('Experiment session : Press space bar to start')
+        drawTextOnScreen('Experiment session : Press space bar to start',mywin)
         keys = event.getKeys()
         if 'space' in keys:      # If space has been pushed
             start = time.time()
-            drawTextOnScreen('')
+            drawTextOnScreen('',mywin)
             if IS_BASELINE: 
-                drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID)
+                drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID,mywin)
             #experiment      
             #3 session
             for session in range(NUM_SESSION):
@@ -208,7 +208,7 @@ def main():
                         #drawTextOnScreen(f"Session:{session+1}_Block:{block+1}({BLOCK_DICT[block+1]})_Trials:{trials+1}")
                         #draw first fixation
                         a.hear('A_')
-                        drawFixation(FIXATION_TIME,board_shim)
+                        drawFixation(FIXATION_TIME,board_shim,mywin)
                         #สลับซ้ายขวา = ใช้ mod
                         #check is_video == true       
                         if PLAY_VIDEO == True:
@@ -221,9 +221,9 @@ def main():
                                 stim = stimuli[3]
                                 Marker = BLOCK_MARKER[2]
                             #drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
-                            playVideo(f"{stim}",Marker,STIM_TIME,board_shim)
+                            playVideo(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
                             b.hear('A_')
-                            drawFixation(FIXATION_TIME,board_shim)
+                            drawFixation(FIXATION_TIME,board_shim,mywin)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
                         else:
@@ -237,9 +237,9 @@ def main():
                                 Marker = BLOCK_MARKER[2]
                             #print(stim)
                             #print(Marker)
-                            drawTrial(f"{stim}",Marker,STIM_TIME,board_shim)
+                            drawTrial(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
                             b.hear('A_')
-                            drawFixation(FIXATION_TIME,board_shim)
+                            drawFixation(FIXATION_TIME,board_shim,mywin)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
                                 
@@ -266,13 +266,13 @@ def main():
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
                         
                     #block break
-                    drawTextOnScreen('Block Break 4 Minutes')
+                    drawTextOnScreen('Block Break 4 Minutes',mywin)
                     core.wait(BLOCK_BREAK)
                     #throw data
                     data = board_shim.get_board_data()
-                drawTextOnScreen('Session Break 60 seconds')        
+                drawTextOnScreen('Session Break 60 seconds',mywin)        
                 core.wait(SESSION_BREAK)                
-            drawTextOnScreen('End of experiment, Thank you')
+            drawTextOnScreen('End of experiment, Thank you',mywin)
             
             stop  = time.time()
             print(f"Total experiment time = {(stop-start)/60} ")

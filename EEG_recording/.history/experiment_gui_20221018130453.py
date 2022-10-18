@@ -68,8 +68,6 @@ def eegMarking(board,marker):   # use trial variable from main
     
 def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     baseline_open_name = f'{PARTICIPANT_ID}R{1:02d}'
-    #throw data
-    data = board.get_board_data() 
     #Baseline run
     #open
     drawTextOnScreen("Baseline run 1: Open eyes (estimated time: 60 second)",mywin)

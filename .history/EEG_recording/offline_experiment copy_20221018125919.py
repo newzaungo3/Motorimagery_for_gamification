@@ -188,7 +188,7 @@ def main():
             start = time.time()
             drawTextOnScreen('')
             if IS_BASELINE: 
-                drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID)
+                drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID,mywin)
             #experiment      
             #3 session
             for session in range(NUM_SESSION):

@@ -30,7 +30,7 @@ from psychopy.visual import vlcmoviestim
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 stimuli = []
-a = beeps(600)
+a = beeps(500)
 b = beeps(800)
 mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm') 
 
@@ -266,7 +266,7 @@ def main():
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
                         
                     #block break
-                    drawTextOnScreen('Block Break 4 Minutes')
+                    drawTextOnScreen('Block Break 30 seconds')
                     core.wait(BLOCK_BREAK)
                     #throw data
                     data = board_shim.get_board_data()
