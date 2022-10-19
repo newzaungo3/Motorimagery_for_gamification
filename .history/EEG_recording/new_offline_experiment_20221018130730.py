@@ -166,12 +166,10 @@ def main():
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
                         
                     #block break
-                    if (block+1) != 4:
-                        drawTextOnScreen('Block Break 4 Minutes',mywin)
-                        core.wait(BLOCK_BREAK)
-                        #throw data
-                        data = board_shim.get_board_data()
-                        
+                    drawTextOnScreen('Block Break 4 Minutes',mywin)
+                    core.wait(BLOCK_BREAK)
+                    #throw data
+                    data = board_shim.get_board_data()
                 drawTextOnScreen('Session Break 60 seconds',mywin)        
                 core.wait(SESSION_BREAK)                
             drawTextOnScreen('End of experiment, Thank you',mywin)

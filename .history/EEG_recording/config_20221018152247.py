@@ -10,7 +10,6 @@ VIDEO_FOLDER:str = 'video/'
 #==============================================
 # experiment parameters
 #==============================================
-#[1366,768]
 SCREEN_SIZE:array = [1920, 1000]
 TOTAL_IMAGE:int = 2
 NUM_TRIAL:int = 30 #30
@@ -19,8 +18,8 @@ NUM_SESSION:int = 1 #3
 STIM_CHECK = 0
 # baseline run
 IS_BASELINE:bool = True
-BASELINE_EYEOPEN:int = 60 #60second
-BASELINE_EYECLOSE:int = 60 #60second
+BASELINE_EYEOPEN:int = 3 #60second
+BASELINE_EYECLOSE:int = 3 #60second
 ALERT_TIME:int = 800 #8second 
 INSTRUCTION_TIME:int = 2 
 #stimuli time (left arrow and right arrow)

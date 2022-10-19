@@ -10,7 +10,6 @@ VIDEO_FOLDER:str = 'video/'
 #==============================================
 # experiment parameters
 #==============================================
-#[1366,768]
 SCREEN_SIZE:array = [1920, 1000]
 TOTAL_IMAGE:int = 2
 NUM_TRIAL:int = 30 #30
