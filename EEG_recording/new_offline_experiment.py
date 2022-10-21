@@ -171,9 +171,9 @@ def main():
                         core.wait(BLOCK_BREAK)
                         #throw data
                         data = board_shim.get_board_data()
-                        
-                drawTextOnScreen('Session Break 60 seconds',mywin)        
-                core.wait(SESSION_BREAK)                
+                if (session+1) != 3:        
+                    drawTextOnScreen('Session Break 60 seconds',mywin)        
+                    core.wait(SESSION_BREAK)                
             drawTextOnScreen('End of experiment, Thank you',mywin)
             
             stop  = time.time()

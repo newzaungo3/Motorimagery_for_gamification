@@ -11,7 +11,8 @@ VIDEO_FOLDER:str = 'video/'
 # experiment parameters
 #==============================================
 #[1366,768]
-SCREEN_SIZE:array = [1920, 1000]
+#[1536,864]
+SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
 NUM_TRIAL:int = 30 #30
 NUM_BLOCK:int = 4 #4
@@ -40,7 +41,7 @@ IP_PORT = 0
 IP_PROTOCOL = 0
 IP_ADDRESS =''
 BOARD_ID = 0
-SERIAL_PORT = 'COM3'
+SERIAL_PORT = 'COM5'
 MAC_ADDRESS = ''
 OTHER = ''
 STREAMER_PARAMS = ''
@@ -57,8 +58,8 @@ IS_VIDEO = True
 PLAY_VIDEO = False
 
 #Record config
-NAME:str = 'NUT_Wet'
-PARTICIPANT_ID:str = 'S011'
+NAME:str = 'New'
+PARTICIPANT_ID:str = 'S016'
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'
