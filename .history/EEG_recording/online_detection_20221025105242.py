@@ -24,6 +24,12 @@ info = mne.create_info(ch_names, sfreq, ch_types = ch_types)
 # this is the host id that identifies your stream on LSL
 host = 'OpenBCItestEEG'
 wait_max = 5
+
+# Load a file to stream raw data
+data_path = sample.data_path()
+raw_fname = data_path  / 'MEG' / 'sample' / 'sample_audvis_filt-0-40_raw.fif'
+raw = read_raw_fif(raw_fname).crop(0, 30).load_data().pick('eeg')
+
 # For this example, let's use the mock LSL stream.
 _, ax = plt.subplots(1)
 n_epochs = 5

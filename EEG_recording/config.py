@@ -16,7 +16,7 @@ SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
 NUM_TRIAL:int = 30 #30
 NUM_BLOCK:int = 4 #4
-NUM_SESSION:int = 3 #3
+NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
 # baseline run
 IS_BASELINE:bool = True
@@ -40,8 +40,8 @@ TIME_OUT = 0
 IP_PORT = 0
 IP_PROTOCOL = 0
 IP_ADDRESS =''
-BOARD_ID = 0
-SERIAL_PORT = 'COM5'
+BOARD_ID =  -1 #0
+SERIAL_PORT = ''
 MAC_ADDRESS = ''
 OTHER = ''
 STREAMER_PARAMS = ''
@@ -59,7 +59,7 @@ PLAY_VIDEO = False
 
 #Record config
 NAME:str = 'New'
-PARTICIPANT_ID:str = 'S016'
+PARTICIPANT_ID:str = 'S017'
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'
