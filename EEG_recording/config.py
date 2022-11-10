@@ -55,7 +55,7 @@ PLAY_VIDEO = False
 
 #Record config
 NAME:str = 'New'
-PARTICIPANT_ID:str = 'S018'
+PARTICIPANT_ID:str = 'S027'
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'

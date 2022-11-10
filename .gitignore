@@ -133,3 +133,5 @@ dmypy.json
 
 EEG_recording/brainflow_data.csv
 /EEG_recording/record
+/EEG_recording/Pipfile.lock
+EEG_recording/Pipfile.lock
