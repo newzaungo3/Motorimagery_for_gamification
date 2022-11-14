@@ -34,8 +34,8 @@ def main():
     global STIM_CHECK
     global PLAY_VIDEO
     #Window setup
-    mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=2)
-    erdWin = visual.Window(SCREEN_SIZE, color="black",monitor="ERD view" , units='norm',screen=1)
+    mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=1)
+    #erdWin = visual.Window(SCREEN_SIZE, color="black",monitor="ERD view" , units='norm',screen=1)
     stimuli = get_stimuli()
     
     #Board setup
@@ -159,8 +159,8 @@ def main():
                                 image_path = f'./{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #image_path = f'C:/Users/asus/Desktop/Motorimagery_for_gamification/EEG_recording/{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #executor.submit(drawERD,image_path,erdWin)
-                                print("drawing")
-                                drawERD(image_path,erdWin)
+                                #print("drawing")
+                                #drawERD(image_path,erdWin)
                                 
                                 if CALIBRATION == True:
                                     file_name = f'{PARTICIPANT_ID}R{trials+1:02d}'

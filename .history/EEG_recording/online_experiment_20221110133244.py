@@ -34,8 +34,8 @@ def main():
     global STIM_CHECK
     global PLAY_VIDEO
     #Window setup
-    mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=2)
-    erdWin = visual.Window(SCREEN_SIZE, color="black",monitor="ERD view" , units='norm',screen=1)
+    mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=1)
+    erdWin = visual.Window(SCREEN_SIZE, color="black",monitor="ERD view" , units='norm',screen=2)
     stimuli = get_stimuli()
     
     #Board setup
@@ -91,7 +91,7 @@ def main():
                      
                                 #จบ 1 trials
                                 print("save and send") 
-                                drawTextOnScreen('Saving',mywin)
+                                drawTextOnScreen('Save & Send',mywin)
                                 core.wait(10)
                                 
                                 data = board.get_board_data()
@@ -144,7 +144,7 @@ def main():
                                 
                                 #จบ 1 trials
                                 print("save and send") 
-                                drawTextOnScreen('Saving',mywin)
+                                drawTextOnScreen('Save & Send',mywin)
                                 #freeze to get full data
                                 core.wait(10)
                                 data = board.get_board_data()
@@ -154,13 +154,13 @@ def main():
                                 raw = getdata(data,0,n_samples=250)
                                 __,epochs_raw_data,__ = getepoch(raw,0,7)
                                 print(epochs_raw_data)
-                                #executor.submit(Erd_Plot,epochs_raw_data,trials)
-                                Erd_Plot(epochs_raw_data,trials)
+                                executor.submit(Erd_Plot,epochs_raw_data,trials)
+                                #Erd_Plot(epochs_raw_data,trials)
                                 image_path = f'./{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #image_path = f'C:/Users/asus/Desktop/Motorimagery_for_gamification/EEG_recording/{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #executor.submit(drawERD,image_path,erdWin)
-                                print("drawing")
-                                drawERD(image_path,erdWin)
+                                #print("drawing")
+                                #drawERD(image_path,erdWin)
                                 
                                 if CALIBRATION == True:
                                     file_name = f'{PARTICIPANT_ID}R{trials+1:02d}'

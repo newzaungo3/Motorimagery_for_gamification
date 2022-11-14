@@ -159,8 +159,8 @@ def main():
                                 image_path = f'./{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #image_path = f'C:/Users/asus/Desktop/Motorimagery_for_gamification/EEG_recording/{ERD_FOLDER}{PARTICIPANT_ID}/{NAME}_{trials:02d}{FIG_FILE}'
                                 #executor.submit(drawERD,image_path,erdWin)
-                                print("drawing")
-                                drawERD(image_path,erdWin)
+                                #print("drawing")
+                                #drawERD(image_path,erdWin)
                                 
                                 if CALIBRATION == True:
                                     file_name = f'{PARTICIPANT_ID}R{trials+1:02d}'
