@@ -27,7 +27,7 @@ def get_stimuli():
 #==============================================
 def drawCheck(videoCheck,stim,marker,board_shim,window):
     if videoCheck == True:
-        print('h')
+        print('h\')
 def drawTextOnScreen(massage,mywin) :
     message = visual.TextStim( mywin, text=massage, languageStyle='LTR',bold=True,color=[89, 206, 143],colorSpace='rgb')
     message.contrast =  0.3

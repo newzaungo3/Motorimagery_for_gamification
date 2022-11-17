@@ -49,8 +49,7 @@ PRESET = 0
 #Marker config
 #BLOCK_DICT:dict[int,str] = {1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right' }
 BLOCK_DICT:dict[int,str] = {1:'execute',2:'imagine',3:'executed',4:'imagine' }
-#BLOCK_MARKER:dict = {1:1.0 , 2:2.0}
-BLOCK_MARKER:dict = {0:1.0 , 1:2.0}
+BLOCK_MARKER:dict = {1:1.0 , 2:2.0}
 IS_VIDEO = True
 PLAY_VIDEO = False
 

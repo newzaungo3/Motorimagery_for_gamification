@@ -125,7 +125,7 @@ def send_raw(database):
         requests.post("http://localhost:8000/items",json=data)
         time.sleep(5)
 
-def randomStimuli(numTrials):
+def randomStimuli():
     '''Input
         1. Stimuli set
         2. randomnumber
@@ -135,48 +135,29 @@ def randomStimuli(numTrials):
         Dict of stimuli and marker    
     '''
     #ubuntu, delete folder
-    image_stimuli = []
-    video_stimuli = []
+    stimuli = []
     for cat in CATEGORIES:
         l = get_filenames_in_path(f"{IMAGE_FOLDER}{cat}")
-        image_stimuli.append(f'{IMAGE_FOLDER}{cat}{"/"}{l[0]}')
+        stimuli.append(f'{IMAGE_FOLDER}{cat}{"/"}{l[0]}')
     
     for cat in CATEGORIES:
         v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
-        video_stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
+        stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
+    
+    print(stimuli)
     image_list=[]
     video_list=[]
-    image_list,numIm_list = randomlist(image_stimuli,numTrials,0,1)
-    video_list,numVi_list = randomlist(video_stimuli,numTrials,0,1)
-    return image_list,numIm_list,video_list,numVi_list
-
-def randomlist(stimuli,num_range,nmin,nmax):
-    return_list = []
-    num_list = []
-    left_i = 0
-    right_i = 0
-    for i in range(num_range):
-        # random check number of list before append in list
-        num = random.randint(nmin,nmax)
-        if num == nmin:
-            if left_i != 10:
-                return_list.append(stimuli[num])
-                num_list.append(num)
-                left_i += 1
-            else:
-                return_list.append(stimuli[nmax])
-                num_list.append(nmax)
-        elif num == nmax:
-            if right_i != 10:
-                return_list.append(stimuli[num])
-                num_list.append(num)
-                right_i += 1
-            else:
-                return_list.append(stimuli[nmin])
-                num_list.append(nmin)
-                 
-    return return_list,num_list
-               
+    
+    n=20
+    for i in range(n):
+        image_list.append(random.randint(1,2))
+        video_list.append(random.randint(3,4))
+    print(image_list)
+    print(video_list)
+    random.shuffle(image_list)
+    print(image_list)
+    return image_list,video_list
+    
 def Erd_Plot(epochs,trial):
     
     print("ERE PROCESS")

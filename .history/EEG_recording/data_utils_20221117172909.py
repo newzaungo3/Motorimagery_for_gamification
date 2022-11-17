@@ -146,9 +146,9 @@ def randomStimuli(numTrials):
         video_stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
     image_list=[]
     video_list=[]
-    image_list,numIm_list = randomlist(image_stimuli,numTrials,0,1)
-    video_list,numVi_list = randomlist(video_stimuli,numTrials,0,1)
-    return image_list,numIm_list,video_list,numVi_list
+    image_list = randomlist(image_stimuli,numTrials,0,1)
+    video_list = randomlist(video_stimuli,numTrials,0,1)
+    return image_list,video_list
 
 def randomlist(stimuli,num_range,nmin,nmax):
     return_list = []
@@ -175,7 +175,7 @@ def randomlist(stimuli,num_range,nmin,nmax):
                 return_list.append(stimuli[nmin])
                 num_list.append(nmin)
                  
-    return return_list,num_list
+    return return_list
                
 def Erd_Plot(epochs,trial):
     

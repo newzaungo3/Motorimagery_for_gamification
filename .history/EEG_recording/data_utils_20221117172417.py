@@ -144,15 +144,18 @@ def randomStimuli(numTrials):
     for cat in CATEGORIES:
         v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
         video_stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
+    print(image_stimuli)
+    print(video_stimuli)
     image_list=[]
     video_list=[]
-    image_list,numIm_list = randomlist(image_stimuli,numTrials,0,1)
-    video_list,numVi_list = randomlist(video_stimuli,numTrials,0,1)
-    return image_list,numIm_list,video_list,numVi_list
+    image_list = randomlist(image_stimuli,numTrials,0,1)
+    video_list = randomlist(video_stimuli,numTrials,0,1)
+    print(image_list)
+    print(video_list)
+    return image_list,video_list
 
 def randomlist(stimuli,num_range,nmin,nmax):
     return_list = []
-    num_list = []
     left_i = 0
     right_i = 0
     for i in range(num_range):
@@ -161,21 +164,17 @@ def randomlist(stimuli,num_range,nmin,nmax):
         if num == nmin:
             if left_i != 10:
                 return_list.append(stimuli[num])
-                num_list.append(num)
                 left_i += 1
             else:
                 return_list.append(stimuli[nmax])
-                num_list.append(nmax)
         elif num == nmax:
             if right_i != 10:
                 return_list.append(stimuli[num])
-                num_list.append(num)
                 right_i += 1
             else:
                 return_list.append(stimuli[nmin])
-                num_list.append(nmin)
                  
-    return return_list,num_list
+    return return_list
                
 def Erd_Plot(epochs,trial):
     

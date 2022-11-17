@@ -10,7 +10,7 @@ from array import array
 #[1536,864]
 SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 6 #30
+NUM_TRIAL:int = 30 #30
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
@@ -28,7 +28,7 @@ EXE_COUNT:int = 0
 IMAGINE_COUNT:int = 0
 EXECUTE_NO:array=[3,5,7,9,11,13]
 IMAGINE_NO:array=[4,6,8,10,12,14]
-BLOCK_BREAK = 1#240 second, 4  min
+BLOCK_BREAK = 240 #240 second, 4  min
 SESSION_BREAK = 300 #600 second, 10 min
 
 #EEG config
@@ -49,8 +49,7 @@ PRESET = 0
 #Marker config
 #BLOCK_DICT:dict[int,str] = {1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right' }
 BLOCK_DICT:dict[int,str] = {1:'execute',2:'imagine',3:'executed',4:'imagine' }
-#BLOCK_MARKER:dict = {1:1.0 , 2:2.0}
-BLOCK_MARKER:dict = {0:1.0 , 1:2.0}
+BLOCK_MARKER:dict = {1:1.0 , 2:2.0}
 IS_VIDEO = True
 PLAY_VIDEO = False
 
