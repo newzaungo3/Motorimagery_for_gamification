@@ -5,11 +5,10 @@ from psychopy import sound, visual,core
 import pygame
 sound_file = './sound/Left.wav'
 
-import sounddevice as sd
-import soundfile as sf
+from playsound import playsound
+playsound(./sound/Left.wav')
 
-data, fs = sf.read(sound_file)
-sd.play(data, fs)
-sd.wait()
+'''s = sound.Sound(value=sound_file, secs=1) 
+s.play()'''
 
 randomStimuli(20)

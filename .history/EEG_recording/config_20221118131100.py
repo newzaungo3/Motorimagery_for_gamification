@@ -54,7 +54,6 @@ BLOCK_MARKER:dict = {0:1.0 , 1:2.0}
 SOUND_DICT:dict[int,str] = {0:'./sound/Left.wav',1:'./sound/Right.wav'}
 IS_VIDEO = True
 PLAY_VIDEO = False
-PLAY_SOUND = False
 
 #Record config
 NAME:str = 'New'

@@ -8,7 +8,7 @@ sound_file = './sound/Left.wav'
 import sounddevice as sd
 import soundfile as sf
 
-data, fs = sf.read(sound_file)
+data, fs = sf.read('sound_file')
 sd.play(data, fs)
 sd.wait()
 

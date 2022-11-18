@@ -6,10 +6,6 @@ import pygame
 sound_file = './sound/Left.wav'
 
 import sounddevice as sd
-import soundfile as sf
-
-data, fs = sf.read(sound_file)
-sd.play(data, fs)
-sd.wait()
+sd.play(sound_file, 44100 )
 
 randomStimuli(20)

@@ -4,12 +4,11 @@ import psychtoolbox as ptb
 from psychopy import sound, visual,core
 import pygame
 sound_file = './sound/Left.wav'
+pygame.mixer.init()
+pygame.mixer.music.load(sound_file)
+pygame.mixer.music.play()
 
-import sounddevice as sd
-import soundfile as sf
-
-data, fs = sf.read(sound_file)
-sd.play(data, fs)
-sd.wait()
+'''s = sound.Sound(value=sound_file, secs=1) 
+s.play()'''
 
 randomStimuli(20)
