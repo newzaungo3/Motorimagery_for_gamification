@@ -134,5 +134,6 @@ def playVideo(videoPath, mark, stimTime,board,mywin):
     while True:
         video.draw(mywin)
         mywin.flip()
+        print(video.frameTime)
         if video.frameTime >= STIM_TIME:
             break

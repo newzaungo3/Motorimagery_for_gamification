@@ -54,8 +54,8 @@ BLOCK_MARKER:dict = {0:1.0 , 1:2.0}
 SOUND_DICT:dict[int,str] = {0:'./sound/Left.wav',1:'./sound/Right.wav'}
 IMAGE_DICT:dict[int,str] = {0:'./images/left/left.png',1:'./images/right/right.png'}
 VIDEO_DICT = [
- { 0:'./video/left/left.avi', 1: './video/right/right.avi' },
- { 0: './video/left/left2.avi', 1: './video/right/right2.avi' },
+ { 0:'video/left/left.avi', 1: 'video/right/right.avi' },
+ { 0: 'video/left/left2.avi', 1: 'video/right/right2.avi' },
  ]
 IS_VIDEO = True
 PLAY_VIDEO = False

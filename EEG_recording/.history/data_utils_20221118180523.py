@@ -162,7 +162,7 @@ def randomlist(stimuli,num_range,nmin,nmax):
         # random check number of list before append in list
         num = random.randint(nmin,nmax)
         if num == nmin:
-            if left_i != num_range:
+            if left_i != 10:
                 return_list.append(stimuli[num])
                 num_list.append(num)
                 left_i += 1
@@ -170,7 +170,7 @@ def randomlist(stimuli,num_range,nmin,nmax):
                 return_list.append(stimuli[nmax])
                 num_list.append(nmax)
         elif num == nmax:
-            if right_i != num_range:
+            if right_i != 10:
                 return_list.append(stimuli[num])
                 num_list.append(num)
                 right_i += 1

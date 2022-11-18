@@ -10,7 +10,7 @@ from array import array
 #[1536,864]
 SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 4 #30
+NUM_TRIAL:int = 6 #30
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
@@ -53,10 +53,6 @@ BLOCK_DICT:dict[int,str] = {1:'execute',2:'imagine',3:'executed',4:'imagine' }
 BLOCK_MARKER:dict = {0:1.0 , 1:2.0}
 SOUND_DICT:dict[int,str] = {0:'./sound/Left.wav',1:'./sound/Right.wav'}
 IMAGE_DICT:dict[int,str] = {0:'./images/left/left.png',1:'./images/right/right.png'}
-VIDEO_DICT = [
- { 0:'./video/left/left.avi', 1: './video/right/right.avi' },
- { 0: './video/left/left2.avi', 1: './video/right/right2.avi' },
- ]
 IS_VIDEO = True
 PLAY_VIDEO = False
 PLAY_SOUND = False

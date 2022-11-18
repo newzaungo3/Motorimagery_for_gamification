@@ -143,10 +143,7 @@ def randomStimuli(numTrials):
     
     for cat in CATEGORIES:
         v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
-        for i in v:
-            video_stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{i}')
-        
-    print(video_stimuli)
+        video_stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
     image_list=[]
     video_list=[]
     image_list,numIm_list = randomlist(image_stimuli,numTrials,0,1)
@@ -162,7 +159,7 @@ def randomlist(stimuli,num_range,nmin,nmax):
         # random check number of list before append in list
         num = random.randint(nmin,nmax)
         if num == nmin:
-            if left_i != num_range:
+            if left_i != 10:
                 return_list.append(stimuli[num])
                 num_list.append(num)
                 left_i += 1
@@ -170,7 +167,7 @@ def randomlist(stimuli,num_range,nmin,nmax):
                 return_list.append(stimuli[nmax])
                 num_list.append(nmax)
         elif num == nmax:
-            if right_i != num_range:
+            if right_i != 10:
                 return_list.append(stimuli[num])
                 num_list.append(num)
                 right_i += 1

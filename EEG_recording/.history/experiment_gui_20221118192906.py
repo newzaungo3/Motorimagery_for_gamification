@@ -16,13 +16,18 @@ def get_stimuli():
     #ubuntu, delete folder
     for cat in CATEGORIES:
         l = get_filenames_in_path(f"{IMAGE_FOLDER}{cat}")
+        v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
         stimuli.append(f'{IMAGE_FOLDER}{cat}{"/"}{l[0]}')
+        stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
     return stimuli
 
 
 #==============================================
 # Configuration
 #==============================================
+def drawCheck(videoCheck,stim,marker,board_shim,window):
+    if videoCheck == True:
+        print('h')
 def drawTextOnScreen(massage,mywin) :
     message = visual.TextStim( mywin, text=massage, languageStyle='LTR',bold=True,color=[89, 206, 143],colorSpace='rgb')
     message.contrast =  0.3
@@ -40,6 +45,15 @@ def drawTrial(imgPath, mark, stimTime,board,mywin) :
     mywin.flip()
     eegMarking(board,mark)
     core.wait(stimTime)
+
+def drawERD(imgPath,mywin):
+    drawTextOnScreen('Drawing',mywin)
+    core.wait(1)
+    img = visual.ImageStim( mywin,  image=imgPath )
+    img.size *= 1.5
+    img.draw()
+    mywin.flip()
+    
     
 def drawFixation(fixationTime,board,mywin):
     fixation = visual.ShapeStim(mywin,
@@ -120,5 +134,6 @@ def playVideo(videoPath, mark, stimTime,board,mywin):
     while True:
         video.draw(mywin)
         mywin.flip()
+        print(video.frameTime)
         if video.frameTime >= STIM_TIME:
             break

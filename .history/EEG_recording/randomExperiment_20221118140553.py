@@ -25,8 +25,11 @@ from numpy.random import default_rng
 import sys
 from config import *
 from utils import get_filenames_in_path
-from data_utils import save_raw,getdata,getepoch,save_raw_to_dataframe
+from data_utils import save_raw,getdata,getepoch,save_raw_to_dataframe,randomStimuli
 from psychopy.visual import vlcmoviestim
+import sounddevice as sd
+import soundfile as sf
+
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 stimuli = []
@@ -81,61 +84,47 @@ def main():
     #3) execute left and right save
     logging.info("Begin experiment")
     while True:
-        # how to start an experiment
+
         drawTextOnScreen('Experiment session : Press space bar to start',mywin)
         keys = event.getKeys()
-        if 'space' in keys:      # If space has been pushed
+        if 'space' in keys:     
             start = time.time()
             drawTextOnScreen('',mywin)
             if IS_BASELINE: 
                 drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board_shim,BOARD_ID,mywin)
-            #experiment      
-            #3 session
             for session in range(NUM_SESSION):
-                # 4 block
+                image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
                 for block in range(NUM_BLOCK):
                     if IS_VIDEO:
                         if (block+1) % 2 != 0:
-                            #Executed
+                            #Executed use image list
                             PLAY_VIDEO = False
+                            stim = image_list
                         else:
-                            #Imagine
+                            #Imagine use video list
                             PLAY_VIDEO = True
-                    #1:'execute_left',2:'executed_right',3:'imagine_left',4:'imagine_right'
-                    #12 trials
+                            stim = video_list
                     STIM_CHECK = 0
                     a.hear('A_')
                     for trials in range(NUM_TRIAL):
-                        #drawTextOnScreen(f"Session:{session+1}_Block:{block+1}({BLOCK_DICT[block+1]})_Trials:{trials+1}")
-                        #draw first fixation
-                        drawFixation(FIXATION_TIME,board_shim,mywin)
-                        #a.hear('A_')
-                        #สลับซ้ายขวา = ใช้ mod
-                        #check is_video == true       
+                        drawFixation(FIXATION_TIME,board_shim,mywin)     
                         if PLAY_VIDEO == True:
-                            #left
-                            if STIM_CHECK % 2 == 0:
-                                stim = stimuli[1]
-                                Marker = BLOCK_MARKER[1]
-                            #right
-                            elif STIM_CHECK % 2 != 0:
-                                stim = stimuli[3]
-                                Marker = BLOCK_MARKER[2]
-                            playVideo(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
+                            if PLAY_SOUND == True:
+                                data, fs = sf.read(SOUND_DICT[numVi_list[trials]])
+                                sd.play(data, fs)
+                                sd.wait()
+                            #playVideo(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
+                            playVideo(f"{stim[trials]}",BLOCK_MARKER[numVi_list[trials]],STIM_TIME,board_shim,mywin)
                             #b.hear('A_')
                             drawFixation(FIXATION_TIME,board_shim,mywin)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
                         else:
-                            #left     
-                            if STIM_CHECK % 2 == 0:
-                                stim = stimuli[0]
-                                Marker = BLOCK_MARKER[1]
-                            #right
-                            elif STIM_CHECK % 2 != 0:
-                                stim = stimuli[2]
-                                Marker = BLOCK_MARKER[2]
-                            drawTrial(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
+                            if PLAY_SOUND == True:
+                                data, fs = sf.read(SOUND_DICT[numVi_list[trials]])
+                                sd.play(data, fs)
+                                sd.wait()
+                            drawTrial(f"{stim[trials]}",BLOCK_MARKER[numIm_list[trials]],STIM_TIME,board_shim,mywin)
                             drawFixation(FIXATION_TIME,board_shim,mywin)
                             STIM_CHECK += 1
                             print(STIM_CHECK)
@@ -165,11 +154,11 @@ def main():
                     #block break
                     if (block+1) != 4:
                         a.hear('A_')
-                        drawTextOnScreen('Block Break 4 Minutes',mywin)
+                        drawTextOnScreen('Block Break 2 minutes',mywin)
                         core.wait(BLOCK_BREAK)
                         #throw data
                         data = board_shim.get_board_data()
-                if (session+1) != 3:     
+                if (session+1) != 2:     
                     a.hear('A_')   
                     drawTextOnScreen('Session Break 5 minutes',mywin)        
                     core.wait(SESSION_BREAK)
