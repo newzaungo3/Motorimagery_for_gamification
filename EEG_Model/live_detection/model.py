@@ -23,7 +23,8 @@ class ConvNet(nn.Module):
             nn.BatchNorm1d(64),
             nn.ReLU(),
         )
-        self.fc = nn.Linear(112064 , 2)
+        self.fc = nn.Linear(92032  , 2)
+        #self.fc = nn.Linear(80064 , 2)
         self.drop_out = nn.Dropout(0.5)
     def forward(self, x):
         out = self.layer1(x)

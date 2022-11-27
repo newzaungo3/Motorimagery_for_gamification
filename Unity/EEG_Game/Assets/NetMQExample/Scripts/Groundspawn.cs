@@ -23,7 +23,7 @@ public class Groundspawn : MonoBehaviour
                 //Debug.Log(obs.transform.position);
                 Debug.Log(transform.position);
                 obs.transform.position = obs.transform.position;
-                Destroy(obs,15);
+                Destroy(obs,5);
                 timer = 0;
             }
             timer  += Time.deltaTime;

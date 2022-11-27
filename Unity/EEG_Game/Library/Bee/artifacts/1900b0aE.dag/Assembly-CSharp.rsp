@@ -344,6 +344,7 @@
 "Assets/NetMQExample/Scripts/RunAbleThread.cs"
 "Assets/NetMQExample/Scripts/SendPosition.cs"
 "Assets/NetMQExample/Scripts/Server.cs"
+"Assets/script/ColisionCheck.cs"
 "Assets/script/GameController.cs"
 "Assets/script/Move.cs"
 "Assets/script/Position.cs"

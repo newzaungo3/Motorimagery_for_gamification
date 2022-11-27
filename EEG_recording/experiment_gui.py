@@ -25,9 +25,6 @@ def get_stimuli():
 #==============================================
 # Configuration
 #==============================================
-def drawCheck(videoCheck,stim,marker,board_shim,window):
-    if videoCheck == True:
-        print('h')
 def drawTextOnScreen(massage,mywin) :
     message = visual.TextStim( mywin, text=massage, languageStyle='LTR',bold=True,color=[89, 206, 143],colorSpace='rgb')
     message.contrast =  0.3
@@ -56,6 +53,7 @@ def drawERD(imgPath,mywin):
     
     
 def drawFixation(fixationTime,board,mywin):
+    mywin.flip()
     fixation = visual.ShapeStim(mywin,
                                 vertices=((0, -0.5), (0, 0.5), (0,0), (-0.5,0), (0.5, 0)),
                                 lineWidth=5,
@@ -102,7 +100,7 @@ def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     data = board.get_board_data()
     data_copy = data.copy()
     raw = getdata(data_copy,board_id,n_samples = 250)
-    save_raw(raw,baseline_open_name)   
+    save_raw(raw,baseline_open_name,RECORDING_DIR)   
     
     #close
     baseline_close_name = f'{PARTICIPANT_ID}R{2:02d}'
@@ -122,10 +120,11 @@ def drawBaselinerun(openTime,closeTime,board,board_id,mywin):
     data = board.get_board_data()
     data_copy = data.copy()
     raw = getdata(data_copy,board_id,n_samples = 250)
-    save_raw(raw,baseline_close_name)
+    save_raw(raw,baseline_close_name,RECORDING_DIR)
     
 
 def playVideo(videoPath, mark, stimTime,board,mywin):
+    mywin.flip()
     video = vlcmoviestim.VlcMovieStim(mywin,videoPath)
     video.loadMovie(videoPath)
     video.setVolume(0)
@@ -134,6 +133,5 @@ def playVideo(videoPath, mark, stimTime,board,mywin):
     while True:
         video.draw(mywin)
         mywin.flip()
-        print(video.frameTime)
         if video.frameTime >= STIM_TIME:
             break
