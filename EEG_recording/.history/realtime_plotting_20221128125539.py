@@ -24,7 +24,7 @@ class Graph:
         timer = QtCore.QTimer()
         timer.timeout.connect(self.update)
         timer.start(self.update_speed_ms)
-        QtWidgets.QApplication.instance().exec_()
+        QtGui.QApplication.instance().exec_()
 
     def _init_timeseries(self):
         self.plots = list()
@@ -42,7 +42,6 @@ class Graph:
             self.curves.append(curve)
 
     def update(self):
-        print("Hello")
         data = self.board_shim.get_current_board_data(self.num_points)
         for count, channel in enumerate(self.exg_channels):
             # plot timeseries
@@ -70,7 +69,7 @@ def main():
         logging.info("recording")
         board_shim = BoardShim(BOARD_ID, params)
         board_shim.prepare_session()
-        board_shim.start_stream(450000)
+        board_shim.start_stream()
         #just visualize 
         Graph(board_shim)
     except BaseException:

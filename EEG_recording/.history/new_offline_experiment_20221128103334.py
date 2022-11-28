@@ -70,7 +70,7 @@ def main():
         time.sleep(1)
         sys.exit()
     #board start streaming
-    board_shim.start_stream()
+    board_shim.start_stream(450000, "file://brainflow_data.csv:w")
 
     ##############################################
     # Experiment session
@@ -165,7 +165,7 @@ def main():
                     #block break
                     if (block+1) != 4:
                         a.hear('A_')
-                        drawTextOnScreen('Block Break 2 Minutes',mywin)
+                        drawTextOnScreen('Block Break 4 Minutes',mywin)
                         core.wait(BLOCK_BREAK)
                         #throw data
                         data = board_shim.get_board_data()

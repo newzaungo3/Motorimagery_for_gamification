@@ -135,7 +135,7 @@ EEG_recording/brainflow_data.csv
 /EEG_recording/record
 /EEG_recording/Pipfile.lock
 EEG_recording/Pipfile.lock
-.vscode-server
+/.vscode-server
 .vscode-server/data/Machine/.devport-8fa188b2b301d36553cbc9ce1b0a146ccb93351f
 .vscode-server/data/Machine/.postStartCommandMarker
 .vscode-server/data/User/workspaceStorage/c1f81dc640d39ea9646841baa3097f01/vscode.lock

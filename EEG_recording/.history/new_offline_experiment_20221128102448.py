@@ -70,7 +70,7 @@ def main():
         time.sleep(1)
         sys.exit()
     #board start streaming
-    board_shim.start_stream()
+    board_shim.start_stream(450000, "file://brainflow_data.csv:w")
 
     ##############################################
     # Experiment session
@@ -148,8 +148,8 @@ def main():
                         # get all data and remove it from internal buffer
                         data = board_shim.get_board_data()
                         data_copy = data.copy()
-                        raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
-                        save_raw(raw,block_name,RECORDING_DIR)
+                        raw = getdata(data_copy,BOARD_ID,n_samples = 250)
+                        save_raw(raw,block_name)
                         EXE_COUNT = EXE_COUNT + 1
                     #save mne imagine type
                     elif (block+1) % 2 == 0:
@@ -158,18 +158,18 @@ def main():
                         # get all data and remove it from internal buffer 
                         data = board_shim.get_board_data()
                         data_copy = data.copy()
-                        raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
-                        save_raw(raw,block_name,RECORDING_DIR)
+                        raw = getdata(data_copy,BOARD_ID,n_samples = 250)
+                        save_raw(raw,block_name)
                         IMAGINE_COUNT = IMAGINE_COUNT + 1
                         
                     #block break
                     if (block+1) != 4:
                         a.hear('A_')
-                        drawTextOnScreen('Block Break 2 Minutes',mywin)
+                        drawTextOnScreen('Block Break 4 Minutes',mywin)
                         core.wait(BLOCK_BREAK)
                         #throw data
                         data = board_shim.get_board_data()
-                if (session+1) != 2:     
+                if (session+1) != 3:     
                     a.hear('A_')   
                     drawTextOnScreen('Session Break 5 minutes',mywin)        
                     core.wait(SESSION_BREAK)

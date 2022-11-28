@@ -8,7 +8,6 @@ brainflow = "*"
 matplotlib = "*"
 pandas = "*"
 mne = "*"
-pyqtgraph = "*"
 pyqt5 = "*"
 keyboard = "*"
 pylsl = "*"
@@ -26,6 +25,7 @@ mne-realtime = {file = "https://api.github.com/repos/mne-tools/mne-realtime/zipb
 seaborn = "*"
 pygame = "*"
 playsound = "*"
+pyqtgraph = "*"
 
 [dev-packages]
 

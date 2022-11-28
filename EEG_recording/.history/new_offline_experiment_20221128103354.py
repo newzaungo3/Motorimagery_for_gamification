@@ -70,7 +70,7 @@ def main():
         time.sleep(1)
         sys.exit()
     #board start streaming
-    board_shim.start_stream()
+    board_shim.start_stream(450000, "file://brainflow_data.csv:w")
 
     ##############################################
     # Experiment session

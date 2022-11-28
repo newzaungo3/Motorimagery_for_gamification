@@ -3,7 +3,7 @@ import logging
 import pyqtgraph as pg
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds, BrainFlowPresets
 from brainflow.data_filter import DataFilter, FilterTypes,DetrendOperations,WindowOperations
-from pyqtgraph.Qt import QtGui, QtCore,QtWidgets
+from pyqtgraph.Qt import QtGui, QtCore
 from config import*
 
 class Graph:
@@ -16,15 +16,15 @@ class Graph:
         self.window_size = 4
         self.num_points = self.window_size * self.sampling_rate
 
-        self.app = QtWidgets.QApplication([])
-        self.win = pg.GraphicsLayoutWidget(title='BrainFlow Plot', size=(800, 600))
-        
+        self.app = QtGui.QApplication([])
+        self.win = pg.GraphicsWindow(title='BrainFlow Plot', size=(800, 600))
+
         self._init_timeseries()
 
         timer = QtCore.QTimer()
         timer.timeout.connect(self.update)
         timer.start(self.update_speed_ms)
-        QtWidgets.QApplication.instance().exec_()
+        QtGui.QApplication.instance().exec_()
 
     def _init_timeseries(self):
         self.plots = list()
@@ -42,7 +42,6 @@ class Graph:
             self.curves.append(curve)
 
     def update(self):
-        print("Hello")
         data = self.board_shim.get_current_board_data(self.num_points)
         for count, channel in enumerate(self.exg_channels):
             # plot timeseries
@@ -70,7 +69,7 @@ def main():
         logging.info("recording")
         board_shim = BoardShim(BOARD_ID, params)
         board_shim.prepare_session()
-        board_shim.start_stream(450000)
+        board_shim.start_stream()
         #just visualize 
         Graph(board_shim)
     except BaseException:

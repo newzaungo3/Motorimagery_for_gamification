@@ -69,7 +69,7 @@ IS_BASELINE:bool = False
 
 #Record config
 NAME:str = 'new'
-PARTICIPANT_ID:str = 'S039'
+PARTICIPANT_ID:str = 'S038'
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'

@@ -161,7 +161,7 @@ def main():
         logging.info("recording")
         board_shim = BoardShim(args.board_id, params)
         board_shim.prepare_session()
-        board_shim.start_stream(450000, "file://brainflow_data.csv:w")
+        board_shim.start_stream()
         #just visualize 
         Graph(board_shim)
     except BaseException:
