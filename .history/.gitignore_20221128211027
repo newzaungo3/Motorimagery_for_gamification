@@ -129,7 +129,4 @@ dmypy.json
 .pyre/
 /EEG_Model/save_weight
 /EEG_Model/dataset
-/EEG_Model/wandb
 .vscode-server
-/EEG_recording/record
-EEG_recording/brainflow_data.csv
