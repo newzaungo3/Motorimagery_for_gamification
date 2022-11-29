@@ -140,7 +140,6 @@ def playVideo(videoPath, mark, stimTime,board,mywin):
             break
 
 def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
-    mywin.flip()
     a.hear('A_')
     for trials in range(NUM_TRIAL):
         drawFixation(FIXATION_TIME,board_shim,mywin)     
@@ -155,12 +154,12 @@ def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
         drawFixation(FIXATION_TIME,board_shim,mywin)        
                 
 def startExperiment(ex_type,board,mywin):
-    global IS_FINISH
+    print('hello')
     image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:
         drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board,BOARD_ID,mywin)
-        IS_FINISH = True
+        
     #executed
     elif ex_type == 2:
         print(f"execute{numIm_list}")
@@ -173,7 +172,7 @@ def startExperiment(ex_type,board,mywin):
         data_copy = data.copy()
         raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
         save_raw(raw,block_name,RECORDING_DIR)
-        IS_FINISH = True
+        
         
     #Imagine
     elif ex_type == 3:
@@ -187,6 +186,3 @@ def startExperiment(ex_type,board,mywin):
         data_copy = data.copy()
         raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
         save_raw(raw,block_name,RECORDING_DIR)
-        IS_FINISH = True
-    
-    return IS_FINISH

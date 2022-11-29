@@ -67,7 +67,6 @@ DROPENABLE:bool = False
 
 IS_BASELINE:bool = False
 IS_FINISH:bool = False
-
 #Record config
 NAME:str = 'new'
 PARTICIPANT_ID:str = 'S040'

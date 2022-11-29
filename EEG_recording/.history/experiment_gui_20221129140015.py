@@ -188,5 +188,3 @@ def startExperiment(ex_type,board,mywin):
         raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
         save_raw(raw,block_name,RECORDING_DIR)
         IS_FINISH = True
-    
-    return IS_FINISH

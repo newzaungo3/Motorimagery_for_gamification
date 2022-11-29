@@ -10,7 +10,6 @@ from psychopy.visual import vlcmoviestim
 from beeply.notes import *
 import sounddevice as sd
 import soundfile as sf
-import random
 #Stimuli
 stimuli = []
 a = beeps(800)
@@ -139,54 +138,45 @@ def playVideo(videoPath, mark, stimTime,board,mywin):
         if video.frameTime >= STIM_TIME:
             break
 
-def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
-    mywin.flip()
-    a.hear('A_')
+def draw_Selection(ex_type,board_shim,mywin):
     for trials in range(NUM_TRIAL):
         drawFixation(FIXATION_TIME,board_shim,mywin)     
-        if PLAY_SOUND == True:
-                data, fs = sf.read(SOUND_DICT[num_list[trials]])
+        if PLAY_VIDEO == True:
+            if PLAY_SOUND == True:
+                data, fs = sf.read(SOUND_DICT[numVi_list[trials]])
                 sd.play(data, fs)
                 sd.wait()
-        if ex_type == 2:
-            drawTrial(f"{stim[num_list[trials]]}",BLOCK_MARKER[num_list[trials]],STIM_TIME,board_shim,mywin)
-        elif ex_type == 3:
-            playVideo(f"{stim[num_list[trials]]}",BLOCK_MARKER[num_list[trials]],STIM_TIME,board_shim,mywin)
-        drawFixation(FIXATION_TIME,board_shim,mywin)        
+            #playVideo(f"{stim}",Marker,STIM_TIME,board_shim,mywin)
+            print(f"{stim[numVi_list[trials]]}")
+                            
+            playVideo(f"{stim[numVi_list[trials]]}",BLOCK_MARKER[numVi_list[trials]],STIM_TIME,board_shim,mywin)                            #b.hear('A_')
+            drawFixation(FIXATION_TIME,board_shim,mywin)
+            STIM_CHECK += 1
+            print(STIM_CHECK)
+        else:
+            if PLAY_SOUND == True:
+                data, fs = sf.read(SOUND_DICT[numIm_list[trials]])
+                sd.play(data, fs)
+                sd.wait()
+            print(BLOCK_MARKER[numIm_list[trials]])
+            drawTrial(f"{stim[trials]}",BLOCK_MARKER[numIm_list[trials]],STIM_TIME,board_shim,mywin)
+            drawFixation(FIXATION_TIME,board_shim,mywin)
+            STIM_CHECK += 1
+            print(STIM_CHECK)
                 
 def startExperiment(ex_type,board,mywin):
-    global IS_FINISH
+    print('hello')
     image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:
         drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board,BOARD_ID,mywin)
-        IS_FINISH = True
     #executed
     elif ex_type == 2:
-        print(f"execute{numIm_list}")
         PLAY_VIDEO = False
-        stim = IMAGE_DICT
-        draw_Selection(ex_type,stim,numIm_list,board,mywin)
-        #saving
-        block_name = f'{PARTICIPANT_ID}R{ORDER_NUM:02d}' 
-        data = board.get_board_data()
-        data_copy = data.copy()
-        raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
-        save_raw(raw,block_name,RECORDING_DIR)
-        IS_FINISH = True
-        
+        stim = image_list
+        print("execute")
     #Imagine
     elif ex_type == 3:
-        print(f"imagine{numVi_list}")
-        PLAY_VIDEO = True
-        stim = VIDEO_DICT[VIDEO_ORDER]
-        draw_Selection(ex_type,stim,numVi_list,board,mywin)
-        #saving
-        block_name = f'{PARTICIPANT_ID}R{ORDER_NUM:02d}' 
-        data = board.get_board_data()
-        data_copy = data.copy()
-        raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
-        save_raw(raw,block_name,RECORDING_DIR)
-        IS_FINISH = True
+        print("imagine")
     
-    return IS_FINISH
+    

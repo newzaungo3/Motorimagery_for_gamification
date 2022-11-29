@@ -155,7 +155,7 @@ def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
         drawFixation(FIXATION_TIME,board_shim,mywin)        
                 
 def startExperiment(ex_type,board,mywin):
-    global IS_FINISH
+    print('hello')
     image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:
@@ -188,5 +188,3 @@ def startExperiment(ex_type,board,mywin):
         raw = getdata(data_copy,BOARD_ID,n_samples = 250,dropEnable = DROPENABLE)
         save_raw(raw,block_name,RECORDING_DIR)
         IS_FINISH = True
-    
-    return IS_FINISH

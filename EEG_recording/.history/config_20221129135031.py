@@ -10,7 +10,7 @@ from array import array
 #[1536,864]
 SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 2 #20
+NUM_TRIAL:int = 20 #20
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
@@ -66,7 +66,6 @@ CALIBRATION:bool = False
 DROPENABLE:bool = False
 
 IS_BASELINE:bool = False
-IS_FINISH:bool = False
 
 #Record config
 NAME:str = 'new'

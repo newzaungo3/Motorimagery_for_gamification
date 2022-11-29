@@ -10,7 +10,7 @@ from array import array
 #[1536,864]
 SCREEN_SIZE:array = [1536,864]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 2 #20
+NUM_TRIAL:int = 20 #20
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
@@ -66,13 +66,11 @@ CALIBRATION:bool = False
 DROPENABLE:bool = False
 
 IS_BASELINE:bool = False
-IS_FINISH:bool = False
 
 #Record config
 NAME:str = 'new'
-PARTICIPANT_ID:str = 'S040'
-ORDER_NUM:int = 5
-VIDEO_ORDER:int = 1 # 0:realhand, 1:animation
+PARTICIPANT_ID:str = 'S039'
+ORDER_NUM:int = 1
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'
 TYPE_OF_FILE ='.fif'
