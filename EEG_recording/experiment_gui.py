@@ -156,6 +156,7 @@ def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
                 
 def startExperiment(ex_type,board,mywin):
     global IS_FINISH
+    data = board.get_board_data()
     image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:

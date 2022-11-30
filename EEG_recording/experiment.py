@@ -32,19 +32,9 @@ import soundfile as sf
 
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
-stimuli = []
 a = beeps(1000)
 b = beeps(1000)
-mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=0) 
-
-#ubuntu, delete folder
-for cat in CATEGORIES:
-    l = get_filenames_in_path(f"{IMAGE_FOLDER}{cat}")
-    v = get_filenames_in_path(f"{VIDEO_FOLDER}{cat}")
-    stimuli.append(f'{IMAGE_FOLDER}{cat}{"/"}{l[0]}')
-    stimuli.append(f'{VIDEO_FOLDER}{cat}{"/"}{v[0]}')
-
-print(stimuli)
+mywin = visual.Window(SCREEN_SIZE, color="black",monitor="Experiment Monitor" , units='norm',screen=0,fullscr=True) 
 
 #เวลาทั้งหมด = (4 block * 12 trials * 3 session * 5 second) + (10 second(instruction))+(120 second(baseline))+(50 second(fixation)*3session)
 experiment_time = (NUM_BLOCK*NUM_TRIAL*NUM_SESSION*STIM_TIME)+(INSTRUCTION_TIME)+(BASELINE_EYEOPEN+BASELINE_EYECLOSE)+(FIXATION_TIME*5*3)
@@ -83,6 +73,7 @@ def main():
     #2) imagine left and right save
     #3) execute left and right save
     logging.info("Begin experiment")
+    print("Begin experiment")
     while True:
         drawTextOnScreen('Experiment session : Press space bar to start',mywin)
         resp_key = event.getKeys(keyList=['1','2','3'])

@@ -8,9 +8,9 @@ from array import array
 #==============================================
 #[1366,768]
 #[1536,864]
-SCREEN_SIZE:array = [1536,864]
+SCREEN_SIZE:array = [1920,1080]
 TOTAL_IMAGE:int = 2
-NUM_TRIAL:int = 2 #20
+NUM_TRIAL:int = 20 #20
 NUM_BLOCK:int = 4 #4
 NUM_SESSION:int = 2 #3
 STIM_CHECK = 0
@@ -38,8 +38,8 @@ TIME_OUT = 0
 IP_PORT = 0
 IP_PROTOCOL = 0
 IP_ADDRESS =''
-BOARD_ID =  -1 #0
-SERIAL_PORT = '' #COM6
+BOARD_ID =  0 #0
+SERIAL_PORT = 'COM3' #COM6
 MAC_ADDRESS = ''
 OTHER = ''
 STREAMER_PARAMS = ''
@@ -70,10 +70,10 @@ IS_FINISH:bool = False
 
 
 #experiemet setting
-NAME:str = 'new'
-PARTICIPANT_ID:str = 'S040'
-ORDER_NUM:int = 5
-VIDEO_ORDER:int = 1 # 0:realhand, 1:animation
+NAME:str = 'Zand'
+PARTICIPANT_ID:str = 'S044'
+ORDER_NUM:int = 3
+VIDEO_ORDER:int = 0 # 0:realhand, 1:animation
 
 #All directory
 RECORDING_DIR:str = 'record/'
