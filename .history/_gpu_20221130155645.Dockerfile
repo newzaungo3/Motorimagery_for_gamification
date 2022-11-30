@@ -14,7 +14,6 @@ ENV PIPENV_VENV_IN_PROJECT 1
 COPY ./EEG_Model/Pipfile .
 COPY ./EEG_Model/Pipfile.lock   .
 RUN pipenv install
-RUN pipenv install -d
 
 #RUN pipenv install torch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 --ignore-pipfile
 #RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113

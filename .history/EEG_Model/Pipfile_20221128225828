@@ -3,11 +3,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[[source]]
-url = "https://download.pytorch.org/whl/cu113"
-verify_ssl = true
-name = "fortorch"
-
 [packages]
 pillow = "*"
 opencv-python = "==4.5.3.56"
@@ -28,13 +23,8 @@ pyqt5 = "*"
 fastapi = "0.87.0"
 uvicorn = "*"
 pydantic = "*"
-torch = {version="*", index="fortorch"}
-torchvision = {version="*", index="fortorch"}
-torchaudio = {version="*", index="fortorch"}
-
 
 [dev-packages]
-jupyter = "*"
 ipykernel = "*"
 
 [requires]

@@ -9,12 +9,9 @@ RUN apt install python3 python3-pip -y
 RUN apt install git -y
 # I will use `pipenv` to dynamically controll my environment
 # If you want to use `pip install`, just remove `pipenv` and continue with `pip install`
-RUN pip3 install pipenv
+RUN pip3 install jupyter ipython pipenv
 ENV PIPENV_VENV_IN_PROJECT 1
-COPY ./EEG_Model/Pipfile .
-COPY ./EEG_Model/Pipfile.lock   .
-RUN pipenv install
-RUN pipenv install -d
+#RUN pipenv install
 
 #RUN pipenv install torch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 --ignore-pipfile
 #RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113

@@ -34,7 +34,6 @@ torchaudio = {version="*", index="fortorch"}
 
 
 [dev-packages]
-jupyter = "*"
 ipykernel = "*"
 
 [requires]
