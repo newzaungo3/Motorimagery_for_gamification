@@ -58,7 +58,6 @@ VIDEO_DICT = [
  { 0:'./video/left/left.avi', 1: './video/right/right.avi' },
  { 0: './video/left/left2.avi', 1: './video/right/right2.avi' },
  ]
-STIMULI_ORDER = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
 IS_VIDEO:bool = True
 PLAY_VIDEO:bool = False
 PLAY_SOUND:bool = False
@@ -75,8 +74,7 @@ NAME:str = 'Zand'
 PARTICIPANT_ID:str = 'S044'
 ORDER_NUM:int = 3
 VIDEO_ORDER:int = 0 # 0:realhand, 1:animation
-RANDOM:bool = True
-
+RANDOM:bool = False
 #All directory
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'

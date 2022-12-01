@@ -76,7 +76,6 @@ PARTICIPANT_ID:str = 'S044'
 ORDER_NUM:int = 3
 VIDEO_ORDER:int = 0 # 0:realhand, 1:animation
 RANDOM:bool = True
-
 #All directory
 RECORDING_DIR:str = 'record/'
 CSV_DIR:str = 'csv/'

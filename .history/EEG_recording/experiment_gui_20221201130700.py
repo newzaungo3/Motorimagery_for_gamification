@@ -160,8 +160,7 @@ def startExperiment(ex_type,board,mywin):
     if RANDOM == True:
         numIm_list = STIMULI_ORDER
         numVi_list = STIMULI_ORDER
-    else:
-        image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
+    image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:
         drawBaselinerun(BASELINE_EYEOPEN,BASELINE_EYECLOSE,board,BOARD_ID,mywin)
