@@ -25,7 +25,7 @@ pyqtgraph = "*"
 requests = "*"
 keyboard = "*"
 pyqt5 = "*"
-fastapi = "0.87.0"
+fastapi = "*"
 uvicorn = "*"
 pydantic = "*"
 torch = {version="*", index="fortorch"}

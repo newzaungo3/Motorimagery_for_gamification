@@ -4,7 +4,6 @@ from data_utils import save_raw,getdata,getepoch,save_raw_to_dataframe,randomSti
 from utils import get_filenames_in_path
 import logging
 from turtle import color
-logging.getLogger('PIL').setLevel(logging.WARNING)
 from config import *
 from psychopy.visual import vlcmoviestim
 from beeply.notes import *
@@ -15,6 +14,8 @@ import random
 stimuli = []
 a = beeps(800)
 
+logging.basicConfig(filename="f{NAME}.log",filemode='w')
+logging.getLogger('PIL').setLevel(logging.WARNING)
 def get_stimuli():
     #ubuntu, delete folder
     for cat in CATEGORIES:
@@ -157,10 +158,10 @@ def draw_Selection(ex_type,stim,num_list,board_shim,mywin):
 def startExperiment(ex_type,board,mywin):
     global IS_FINISH
     data = board.get_board_data()
-    if RANDOM == True:
-        numIm_list = STIMULI_ORDER
-        numVi_list = STIMULI_ORDER
-    else:
+    if NO_RANDOM ==  True:
+        numIm_list = STIMULIT_SEQUENCE
+        numVi_list = STIMULIT_SEQUENCE
+    else: 
         image_list,numIm_list,video_list,numVi_list = randomStimuli(NUM_TRIAL)
     #basesline
     if ex_type == 1:
@@ -168,6 +169,8 @@ def startExperiment(ex_type,board,mywin):
         IS_FINISH = True
     #executed
     elif ex_type == 2:
+        logging.info("Hello")
+        logging.info(f"execute{numIm_list}")
         print(f"execute{numIm_list}")
         PLAY_VIDEO = False
         stim = IMAGE_DICT
@@ -182,6 +185,7 @@ def startExperiment(ex_type,board,mywin):
         
     #Imagine
     elif ex_type == 3:
+        logging.info(f"imagine{numVi_list}")
         print(f"imagine{numVi_list}")
         PLAY_VIDEO = True
         stim = VIDEO_DICT[VIDEO_ORDER]

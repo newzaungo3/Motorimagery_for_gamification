@@ -1,12 +1,12 @@
 from tokenize import Double
 from typing import Union,List,Dict
-from fastapi import FastAPI,Body
+from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
 import requests
 import random
-from data_utils import *
-from model import ConvNet,gamenet
+from live_detection.data_utils import NAME,getdata,getepoch
+from live_detection.model import ConvNet,gamenet
 import torch
 import logging
 import time 
@@ -78,7 +78,7 @@ async def create_item(item: Dict):
             condition = '0'
         print(f"sending: {condition}")
         #requests.get(f"http://host.docker.internal:4200/JoyController?msg={condition}")
-    logging.info(f"Filename: {item['name']}")
-    logging.info(f"Predicted: {unity_output}")
-    logging.info(f"Condition: {condition}")
+    # logging.info(f"Filename: {item['name']}")
+    # logging.info(f"Predicted: {unity_output}")
+    # logging.info(f"Condition: {condition}")
     return {"result":1}

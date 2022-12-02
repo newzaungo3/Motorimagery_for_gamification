@@ -27,9 +27,6 @@ EXE_COUNT:int = 0
 IMAGINE_COUNT:int = 0
 EXECUTE_NO:array=[3,5,7,9,11,13]
 IMAGINE_NO:array=[4,6,8,10,12,14]
-
-#EXECUTE_NO:array=[7,9,11,13]
-#IMAGINE_NO:array=[8,10,12,14]
 BLOCK_BREAK = 120 #120 second, 2  min
 SESSION_BREAK = 300 #300 second, 5 min
 
@@ -38,8 +35,8 @@ TIME_OUT = 0
 IP_PORT = 0
 IP_PROTOCOL = 0
 IP_ADDRESS =''
-BOARD_ID =  -1 #0
-SERIAL_PORT = '' #COM6
+BOARD_ID =  0 #0
+SERIAL_PORT = 'COM3' #COM3
 MAC_ADDRESS = ''
 OTHER = ''
 STREAMER_PARAMS = ''
@@ -58,7 +55,7 @@ VIDEO_DICT = [
  { 0:'./video/left/left.avi', 1: './video/right/right.avi' },
  { 0: './video/left/left2.avi', 1: './video/right/right2.avi' },
  ]
-STIMULI_ORDER = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+STIMULIT_SEQUENCE = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
 IS_VIDEO:bool = True
 PLAY_VIDEO:bool = False
 PLAY_SOUND:bool = False
@@ -69,13 +66,14 @@ DROPENABLE:bool = False
 IS_BASELINE:bool = False
 IS_FINISH:bool = False
 
-
+#Session 1, 2 no random 3,4 random
+# odd is excuted even is imagined
 #experiemet setting
-NAME:str = 'Zand'
-PARTICIPANT_ID:str = 'S044'
-ORDER_NUM:int = 3
-VIDEO_ORDER:int = 0 # 0:realhand, 1:animation
-RANDOM:bool = True
+NAME:str = 'Beau'
+PARTICIPANT_ID:str = 'S048'
+ORDER_NUM:int = 10
+VIDEO_ORDER:int = 1 # 0:realhand, 1:animation
+NO_RANDOM:bool = True
 
 #All directory
 RECORDING_DIR:str = 'record/'

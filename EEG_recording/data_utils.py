@@ -22,7 +22,7 @@ import pandas as pd
 import numpy as np
  
 import logging
-logging.basicConfig(filename=NAME)
+logging.basicConfig(filename="f{NAME}.log",filemode='w')
 def now_datestring():
     return datetime.datetime.now().strftime("%Y-%m-%d--%H-%M-%S")
 

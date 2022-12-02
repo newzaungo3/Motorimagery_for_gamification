@@ -29,7 +29,7 @@ from data_utils import save_raw,getdata,getepoch,save_raw_to_dataframe,randomSti
 from psychopy.visual import vlcmoviestim
 import sounddevice as sd
 import soundfile as sf
-
+logging.basicConfig(filename=NAME,filemode='w')
 logging.getLogger('PIL').setLevel(logging.WARNING)
 #Configuration
 a = beeps(1000)
