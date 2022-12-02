@@ -5,8 +5,8 @@ from pydantic import BaseModel
 import numpy as np
 import requests
 import random
-from live_detection.data_utils import NAME,getdata,getepoch
-from live_detection.model import ConvNet,gamenet
+from data_utils import NAME,getdata,getepoch
+from model import ConvNet,gamenet
 import torch
 import logging
 import time 
