@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePre:
-  - {fileID: 3117554959019770893, guid: c324e2c5a5fdc0445982e3b3b85e0f2e, type: 3}
+  - {fileID: 3702657552785132895, guid: 4451c7d9583da4941901eaa5cfaee8ef, type: 3}
   - {fileID: 9193637965935959287, guid: 9d71ac273b96d3a4dad4d3d045e12374, type: 3}
   - {fileID: 8149020181370999307, guid: 9b0dd12705317ed4e97c9b8ec0575948, type: 3}
   spawnTime: 3
