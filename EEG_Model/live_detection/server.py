@@ -24,7 +24,6 @@ def root():
 
 @app.post("/items/")
 async def create_item(item: Dict): 
-    global TRIALS
     #print(item.data)
     print(len(item))
     print(type(item['data']))
@@ -36,8 +35,6 @@ async def create_item(item: Dict):
     data = np.array(item['data'])
     #Convert to mne data
     raw = getdata(data,0,n_samples=250)
-    #save_raw(raw,f'{TRIALS+1:02d}')
-    TRIALS = TRIALS + 1
     train_epochs,epochs_raw_data,labels = getepoch(raw,0,7)
     print(epochs_raw_data)
     print(epochs_raw_data.event_id)
@@ -78,7 +75,7 @@ async def create_item(item: Dict):
             condition = '0'
         print(f"sending: {condition}")
         #requests.get(f"http://host.docker.internal:4200/JoyController?msg={condition}")
-    # logging.info(f"Filename: {item['name']}")
-    # logging.info(f"Predicted: {unity_output}")
-    # logging.info(f"Condition: {condition}")
+    logging.info(f"Filename: {item['name']}")
+    logging.info(f"Predicted: {unity_output}")
+    logging.info(f"Condition: {condition}")
     return {"result":1}

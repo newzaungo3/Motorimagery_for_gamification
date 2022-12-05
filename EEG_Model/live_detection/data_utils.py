@@ -73,6 +73,7 @@ def getdata(data,board,clear_buffer=False,n_samples=None):
     info = mne.create_info(ch_names=ch_names, sfreq=sfreq, ch_types=ch_types)
     raw = mne.io.RawArray(data, info)
     raw_data = raw.copy()
+    print(raw_data)
     eegbci.standardize(raw_data)
     montage = mne.channels.make_standard_montage('standard_1020')
     raw_data.set_montage(montage)
