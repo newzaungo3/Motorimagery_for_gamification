@@ -81,7 +81,7 @@ def getdata(data,board,clear_buffer=False,n_samples=None):
     raw_data=raw_data.filter(8,14, method='fir', verbose=20)
     #2 electrode
     #raw_data.pick_channels(['C3','C4','STIM MARKERS'])
-    raw_data = raw_data.drop_channels(['Fp1', 'Fp2', 'P7', 'P8', 'O1', 'O2'])
+    raw_data.pick_channels(['C3','C4','STIM MARKERS']) 
     print(raw_data.info['ch_names'])
     #print(raw_data.info['sfreq'])
     #print(raw_data['STIM MARKERS'])
@@ -108,7 +108,7 @@ def getepoch(raw,tmin,tmax,reject_bad=False,on_missing='warn'):
     #print(epochs) 
     
     return epochs.get_data(),epochs,labels
-    
+
     
     
 def Erd_Plot(epochs,trial):

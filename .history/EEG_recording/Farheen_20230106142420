@@ -1,0 +1,5 @@
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 35569 (142.3 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session

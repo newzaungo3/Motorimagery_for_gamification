@@ -25,5 +25,4 @@ public class GameController : MonoBehaviour
     {
         public string msg;
     }
-
 }

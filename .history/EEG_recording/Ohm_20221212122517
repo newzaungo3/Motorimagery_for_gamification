@@ -1,0 +1,17 @@
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 35294 (141.2 s), ~2.4 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 36220 (144.9 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 35521 (142.1 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]

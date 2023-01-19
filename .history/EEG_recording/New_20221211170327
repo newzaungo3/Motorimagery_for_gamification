@@ -1,0 +1,22 @@
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 1795 (7.2 s), ~140 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+INFO:root:<RawArray | 9 x 1791 (7.2 s), ~140 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+INFO:root:<RawArray | 9 x 1763 (7.0 s), ~138 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+INFO:root:<RawArray | 9 x 1764 (7.1 s), ~138 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+INFO:root:<RawArray | 9 x 1764 (7.1 s), ~138 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 500 21

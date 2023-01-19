@@ -1,9 +1,17 @@
 # Convolutional neural network (two convolutional layers)
-from torch import nn  
+from torch import nn
+  
+in_channels  = 2  #C3, C4
+out_channels = 64  #five is logical because we have freq= 8, 9, 10, 11, 12 that we want to capture
+out_size     = 2  #left or right
+kernel_size  = 5
+linear_shape = 41024
+# Convolutional neural network (two convolutional layers)
 # Convolutional neural network (two convolutional layers)
 class ConvNet(nn.Module):
     def __init__(self):
         super(ConvNet, self).__init__()
+        
         #using sequential helps bind multiple operations together
         self.layer1 = nn.Sequential(
             #padding = (kernel_size - 1) / 2 = 2
@@ -23,9 +31,11 @@ class ConvNet(nn.Module):
             nn.BatchNorm1d(64),
             nn.ReLU(),
         )
-        self.fc = nn.Linear(92032  , 2)
-        #self.fc = nn.Linear(80064 , 2)
+        
+        self.flatten = nn.Flatten()
+        self.fc = nn.Linear(112064 , 2)
         self.drop_out = nn.Dropout(0.5)
+        
     def forward(self, x):
         out = self.layer1(x)
         out = self.drop_out(out)
@@ -35,10 +45,41 @@ class ConvNet(nn.Module):
         #out = self.drop_out(out)
         #out = self.layer4(out)
         #out = self.drop_out(out)
-        out = out.reshape(out.size(0), -1)   #can also use .view()
+        out = self.flatten(out)
+        #out = out.reshape(out.size(0), -1)   #can also use .view()
         out = self.fc(out)
         return out
 
+# Convolutional neural network (two convolutional layers)
+class CNN2D(nn.Module):
+    def __init__(self):
+        super(CNN2D, self).__init__()
+        
+        #using sequential helps bind multiple operations together
+        self.layer1 = nn.Sequential(
+            #padding = (kernel_size - 1) / 2 = 2
+            nn.Conv1d(2, 64, kernel_size=5, stride=1, padding=2),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            # nn.MaxPool2d(kernel_size=2, stride=2)
+        )
+        self.layer2 = nn.Sequential(
+            nn.Conv1d(64, 128, kernel_size=5, stride=1, padding=2),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
+            # nn.MaxPool2d(kernel_size=2, stride=2)
+        )
+        self.fc = nn.Linear(82048, 2)
+        self.drop_out = nn.Dropout(0.5)
+        
+    def forward(self, x):
+        out = self.layer1(x)
+        out = self.drop_out(out)
+        out = self.layer2(out)
+        out = self.drop_out(out)
+        out = out.reshape(out.size(0), -1)   #can also use .view()
+        out = self.fc(out)
+        return out
 
 class gamenet(nn.Module):
     def __init__(self):

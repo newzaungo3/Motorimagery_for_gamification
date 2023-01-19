@@ -1,0 +1,31 @@
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 35503 (142.0 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 31575 (126.3 s), ~2.2 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 35481 (141.9 s), ~2.4 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 36310 (145.2 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Imagined: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 36319 (145.3 s), ~2.5 MB, data loaded>
+INFO:root:End
+INFO:root:Releasing session

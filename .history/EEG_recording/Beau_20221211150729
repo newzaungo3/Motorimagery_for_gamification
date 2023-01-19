@@ -1,0 +1,67 @@
+INFO:root:Begin experiment
+INFO:root:execute[0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:http://localhost:8000 "POST /items/ HTTP/1.1" 200 12
+INFO:root:End
+INFO:root:Releasing session
+INFO:root:Begin experiment
+INFO:root:Execute: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+INFO:root:<RawArray | 9 x 1979 (7.9 s), ~153 kB, data loaded>
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8000

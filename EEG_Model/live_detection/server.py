@@ -10,6 +10,7 @@ from model import ConvNet,gamenet
 import torch
 import logging
 import time 
+from config import *
 
 app = FastAPI()
 logging.basicConfig(filename=NAME)
@@ -24,30 +25,31 @@ def root():
 
 @app.post("/items/")
 async def create_item(item: Dict): 
-    #print(item.data)
-    print(len(item))
-    print(type(item['data']))
-    print(np.array(item['data']).shape)
-    #print(item.name)
-    #print(type(item.data))
-    #print(np.array(item.data).shape)
-    
-    data = np.array(item['data'])
     #Convert to mne data
-    raw = getdata(data,0,n_samples=250)
+    '''data = np.array(item['data'])
+    raw = getdata(data,BOARD_ID,n_samples=250)
     train_epochs,epochs_raw_data,labels = getepoch(raw,0,7)
     print(epochs_raw_data)
     print(epochs_raw_data.event_id)
-
+    '''
+    
+    #Receive Epoch data from LSL
+    train_epochs = np.array(item['X'])
+    labels = np.array(item['y'])
+    print(train_epochs.shape)
+    print(labels.shape)
+    
     #Predict
-    path = '/root/EEG_Model/save_weight/Sunsun_Online_100.0000'
+    path = '/root/EEG_Model/save_weight/New_EX/new_50.0000'
     model = ConvNet()
     model.load_state_dict(torch.load(path))
     model.eval()
     X_t,y_train= train_epochs.copy(),labels
+    
     #add new dimension
     #X_train = X_t[:,:,np.newaxis,:]
-    X_t=X_t[:,:,int(0.25*250):1500]
+    #X_t=X_t[:,:,int(0.25*250):int(1750-(250*1))]
+    #X_t=X_t[:,:,:]
     #X = X[:, np.newaxis,:,:]
 
 

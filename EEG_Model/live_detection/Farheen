@@ -1,0 +1,120 @@
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R01
+INFO:root:Actual: 0
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R02
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R03
+INFO:root:Actual: 0
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R04
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R05
+INFO:root:Actual: 0
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R06
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R07
+INFO:root:Actual: 0
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R08
+INFO:root:Actual: 1
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R09
+INFO:root:Actual: 0
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R10
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R11
+INFO:root:Actual: 0
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R12
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R13
+INFO:root:Actual: 0
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R14
+INFO:root:Actual: 1
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R15
+INFO:root:Actual: 0
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R16
+INFO:root:Actual: 1
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R17
+INFO:root:Actual: 0
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=left HTTP/1.1" 200 14
+INFO:root:Filename: S001R18
+INFO:root:Actual: 1
+INFO:root:Predicted: 0
+INFO:root:Condition: left
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R19
+INFO:root:Actual: 0
+INFO:root:Predicted: 1
+INFO:root:Condition: right
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): host.docker.internal:4200
+DEBUG:urllib3.connectionpool:http://host.docker.internal:4200 "GET /JoyController?msg=right HTTP/1.1" 200 15
+INFO:root:Filename: S001R20
+INFO:root:Actual: 1
+INFO:root:Predicted: 1
+INFO:root:Condition: right

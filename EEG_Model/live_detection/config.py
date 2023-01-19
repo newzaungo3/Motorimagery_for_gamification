@@ -33,8 +33,8 @@ TIME_OUT = 0
 IP_PORT = 0
 IP_PROTOCOL = 0
 IP_ADDRESS =''
-BOARD_ID = 0
-SERIAL_PORT = 'COM3'
+BOARD_ID = 8 # 0 = openbci 8 = unicorn
+SERIAL_PORT = "COM7"
 MAC_ADDRESS = ''
 OTHER = ''
 STREAMER_PARAMS = ''
@@ -49,7 +49,7 @@ BLOCK_MARKER:dict = {1:1.0 , 2:2.0 , 3:1.0 , 4:2.0 }
 
 
 #Record config
-NAME:str = 'New'
+NAME:str = 'Faye_MI'
 PARTICIPANT_ID:str = 'S002'
 RECORDING_DIR:str = 'online_data/'
 CSV_DIR:str = 'csv/'

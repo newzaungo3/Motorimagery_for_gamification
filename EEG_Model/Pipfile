@@ -31,7 +31,8 @@ pydantic = "*"
 torch = {version="*", index="fortorch"}
 torchvision = {version="*", index="fortorch"}
 torchaudio = {version="*", index="fortorch"}
-
+scikit-learn = "*"
+ipython = "*"
 
 [dev-packages]
 jupyter = "*"
